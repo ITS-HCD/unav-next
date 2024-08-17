@@ -1,7 +1,7 @@
 # NY State Universal Navigation (UNav)
 
 > [!IMPORTANT]  
-> This repo is still in beta. There will be more technical implementation details coming in the next few weeks.
+> This repo is still in beta. There will be more technical implementation details and demos coming in the next few weeks.
 
 The updated version of the New York State Universal Navigation (UNav) is set to launch on October 1, 2024, bringing significant improvements to the digital experience across all public-facing NYS websites. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
 
