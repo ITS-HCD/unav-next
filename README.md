@@ -18,22 +18,35 @@ These changes are part of New York State’s commitment to delivering exceptiona
 
 ### Header and Footer
 
-- [Header Instructions]()
-- [Embed code]()
-- [Header Options]
-- [Footer Options]
+- Embed code
+- Instructions for placement
+- Header and footer options
+
+### Search
+
+- Domain context
+- Search options
+
+### Translate
+
+- Smartling
+- Translate option
+- Header/footer placement
 
 ### Alerts
 
+- Info about alerts
+- Screenshots
+
 ### CTA
 
-### Unav Demo
+- Footer CTA
+- Screenshots
+
+## Unav Demo
   
-- [Demo Link]()
+- [Staging Demo](https://unav24-stage.pages.dev/unav/tests/stage)
 
-## QA Testing
-- [Instructions](https://github.com/nys-its/universal-navigation/blob/gh-pages/notes/testing-against-development-staging.md)
+## Questions
 
-### Questions
-
-Questions can be submitted via our [intake form](https://bit.ly/unav-intake).
+Questions can be submitted to the design system team via our [intake form](https://bit.ly/unav-intake).
