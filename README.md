@@ -1,20 +1,28 @@
 # NY State Universal Navigation (UNav)
 
+> [!IMPORTANT]  
+> This repo is still in beta. There will be more technical implementation details coming in the next few weeks.
+
 The updated version of the New York State Universal Navigation (UNav) is set to launch on October 1, 2024, bringing significant improvements to the digital experience across all public-facing NYS websites. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
 
-- Enhanced User Trust: The updated UNav includes a banner that clearly identifies official NY.gov sites, assuring users they are connected to a secure and legitimate government website.
-- Streamlined Navigation: Confusing service links have been removed, making it easier for users to find what they need without distractions.
-- Integrated Features: The new UNav incorporates a built-in translation selector and search functionality, both of which are optimized for responsiveness across devices.
+The update UNav features:
 
-These changes are part of New York State’s commitment to delivering exceptional digital services that are secure, accessible, and easy to use.
+-	A new banner explaining how to identify an official NY.gov site and how to know that a site is secure, helping visitors understand the site is an official New York State government site;
+-	The service links have been removed from the top to simplify the interface and help visitors stay on task;
+-	The translation menu/language switcher was integrated into the banner to take up less vertical space on the page;
+-	Search was incorporated more naturally into the design of the UNav;
+-	Mobile-responsiveness has been improved: translation and search features expand to fill larger screens, but collapse on smaller screens to save space.
 
-> [!IMPORTANT]  
-> This repo is still in beta. There will be more technical implementation details in the next few weeks.
+These updates reflect New York State’s dedication to creating a secure, accessible, and user-friendly online experience for everyone.
+
+This is what the updated UNav looks like:
+
+<img width="468" alt="image" src="https://github.com/user-attachments/assets/f1a1bd67-e250-4396-8607-c1be2cc15309"> 
 
 ## Getting Started
 
-- [Frequently Asked Questions]()
-- [UNav Detector]()
+- [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
+- [UNav Detector](https://bit.ly/unav-check) — Not sure what version of the UNav your site is using? Use the UNav Detector to identify your UNav implementation type, whether it’s hosted on a .ny.gov domain, and if HTTPS is enabled.
 
 ### Header and Footer
 
