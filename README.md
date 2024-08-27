@@ -13,10 +13,6 @@ The update UNav features:
 -	Search was incorporated more naturally into the design of the UNav;
 -	Mobile-responsiveness has been improved: translation and search features expand to fill larger screens, but collapse on smaller screens to save space.
 
-These updates reflect New York State’s dedication to creating a secure, accessible, and user-friendly online experience for everyone.
-
-This is what the updated UNav looks like:
-
 <img width="468" alt="image" src="https://github.com/user-attachments/assets/f1a1bd67-e250-4396-8607-c1be2cc15309"> 
 
 ## Getting Started
@@ -51,10 +47,10 @@ This is what the updated UNav looks like:
 - Footer CTA
 - Screenshots
 
-## Unav Demo
+## UNav Demo
   
 - [Staging Demo](https://unav24-stage.pages.dev/unav/tests/stage)
 
 ## Questions
 
-Questions can be submitted to the design system team via our [intake form](https://bit.ly/unav-intake).
+Questions can be submitted to the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
