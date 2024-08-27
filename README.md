@@ -13,17 +13,17 @@ The update UNav features:
 -	Search was incorporated more naturally into the design of the UNav;
 -	Mobile-responsiveness has been improved: translation and search features expand to fill larger screens, but collapse on smaller screens to save space.
 
-<img width="468" alt="image" src="https://github.com/user-attachments/assets/f1a1bd67-e250-4396-8607-c1be2cc15309"> 
+<img width="468" alt="Updated UNav" src="./notes/updated-unav.png"> 
 
 ## Getting Started
 
 - [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
 - [UNav Detector](https://bit.ly/unav-check) — Not sure what version of the UNav your site is using? Use the UNav Detector to identify your UNav implementation type, whether it’s hosted on a .ny.gov domain, and if HTTPS is enabled.
 
+## Technical Details
+
 > [!CAUTION]  
 > The UNav should only be used on official NYS websites or applications that are hosted a ny.gov domain and secured with HTTPS encryption. If you have questions about whether your site is eligible to use the UNav, please contact the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
-
-### Technical Details
 
 - [Implementation Guide](/notes/implementation.md) — Details on how to implement the UNav on your site, including code snippets and instructions.
 - [UNav Search](/notes/search.md) — Display options, domain-specific search, and implementation details.
