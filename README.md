@@ -1,6 +1,6 @@
 # NY State Universal Navigation (UNav)
 
-> [!IMPORTANT]  
+> [!WARNING]  
 > This repo is still in beta. There will be more technical implementation details and demos coming in the next few weeks.
 
 The updated version of the New York State Universal Navigation (UNav) is **set to launch on October 1, 2024**, bringing significant improvements to the digital experience across all public-facing NYS websites. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
@@ -20,37 +20,21 @@ The update UNav features:
 - [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
 - [UNav Detector](https://bit.ly/unav-check) — Not sure what version of the UNav your site is using? Use the UNav Detector to identify your UNav implementation type, whether it’s hosted on a .ny.gov domain, and if HTTPS is enabled.
 
-### Header and Footer
+> [!CAUTION]  
+> The UNav should only be used on official NYS websites or applications that are hosted a ny.gov domain and secured with HTTPS encryption. If you have questions about whether your site is eligible to use the UNav, please contact the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
 
-- Embed code
-- Instructions for placement
-- Header and footer options
+### Technical Details
 
-### Search
+- [Implementation Guide](/notes/implementation.md) — Details on how to implement the UNav on your site, including code snippets and instructions.
+- [UNav Search](/notes/search.md) — Display options, domain-specific search, and implementation details.
+- [UNav Translate](/notes/translate.md) — Display options, placement details, and Smartling integration.
+- [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
 
-- Domain context
-- Search options
-
-### Translate
-
-- Smartling
-- Translate option
-- Header/footer placement
-
-### Alerts
-
-- Info about alerts
-- Screenshots
-
-### CTA
-
-- Footer CTA
-- Screenshots
 
 ## UNav Demo
   
-- [Staging Demo](https://unav24-stage.pages.dev/unav/tests/stage)
+- [Staging Demo](https://unav24-stage.pages.dev/unav/tests/stage) — Live demo of the updated UNav, including search, translate, and alerts.
 
 ## Questions
 
-Questions can be submitted to the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
+Questions and exception requests can be submitted to the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
