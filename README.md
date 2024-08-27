@@ -22,13 +22,13 @@ The update UNav features:
 
 ## Technical Details
 
-> [!CAUTION]  
-> The UNav should only be used on official NYS websites or applications that are hosted a ny.gov domain and secured with HTTPS encryption. If you have questions about whether your site is eligible to use the UNav, please contact the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
-
 - [Implementation Guide](/notes/implementation.md) — Details on how to implement the UNav on your site, including code snippets and instructions.
 - [UNav Search](/notes/search.md) — Display options, domain-specific search, and implementation details.
 - [UNav Translate](/notes/translate.md) — Display options, placement details, and Smartling integration.
 - [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
+
+> [!CAUTION]  
+> The UNav should only be used on official NYS websites or applications that are hosted a ny.gov domain and secured with HTTPS encryption. If you have questions about whether your site is eligible to use the UNav, please contact the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
 
 
 ## UNav Demo
