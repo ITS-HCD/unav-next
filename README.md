@@ -5,15 +5,15 @@
 
 The updated version of the New York State Universal Navigation (UNav) is **set to launch on October 1, 2024**, bringing significant improvements to the digital experience across all public-facing NYS websites. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
 
-The update UNav features:
+<img width="468" alt="Updated UNav" src="./notes/updated-unav.png"> 
+
+The updated UNav features:
 
 -	A new banner explaining how to identify an official NY.gov site and how to know that a site is secure, helping visitors understand the site is an official New York State government site;
 -	The service links have been removed from the top to simplify the interface and help visitors stay on task;
 -	The translation menu/language switcher was integrated into the banner to take up less vertical space on the page;
 -	Search was incorporated more naturally into the design of the UNav;
 -	Mobile-responsiveness has been improved: translation and search features expand to fill larger screens, but collapse on smaller screens to save space.
-
-<img width="468" alt="Updated UNav" src="./notes/updated-unav.png"> 
 
 ## Getting Started
 
