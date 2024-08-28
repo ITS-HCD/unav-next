@@ -13,7 +13,7 @@ The language selector is designed to work with the state's Smartling Global Deli
 
 ## Display Options
 
-The language selector can be displayed in the header, the footer, or both, depending on your site’s layout. However, our testing has shown that users find and use the language selector more easily when it’s placed in the header, so we strongly recommend including the language selector in the header.
+The language selector can be displayed in the header, the footer, or both, depending on your site’s layout. However, our testing has shown that users find and use the language selector more easily when it’s placed in the header, so **we strongly recommend including the language selector in the header**.
 
 To configure the placement of the language selector, use the `showLanguageHeader` and `showLanguageFooter` options in the embed code. [More details in the implementation guide.](/notes/implementation.md)
 
