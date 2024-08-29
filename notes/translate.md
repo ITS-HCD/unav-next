@@ -8,7 +8,7 @@ Languages currently available in the language selector include: English, Españo
 
 The language selector is designed to work with the state's Smartling Global Delivery Network (GDN), our current language partner. When a user selects a language, they are redirected to the corresponding language subdomain (e.g. selecting "Spanish" on `ny.gov` would redirect to `es.ny.gov`).
 
-> [!WARN]  
+> [!WARNING]  
 > Not all state websites are set up to work with Smartling. The UNav language selector will only work on sites that have been configured to use Smartling for translation services. If your site is not set up with Smartling, we recommend hiding the language selector.
 
 ## Display Options
