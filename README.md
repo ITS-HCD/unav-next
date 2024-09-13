@@ -33,7 +33,7 @@ The updated UNav features:
 
 ## UNav Demo
   
-- [Staging Demo](https://unav24-stage.pages.dev/unav/tests/stage) — Live demo of the updated UNav, including search, translate, and alerts.
+- [Staging Demo](https://unav24-stage.pages.dev/public/demo?env=stage) — Live demo of the updated UNav, including search, translate, and alerts.
 
 ## Questions
 
