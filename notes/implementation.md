@@ -14,8 +14,8 @@ The header embed is the most important part of the UNav. This code must be place
 <div id="nygov-universal-navigation" class="nygov-universal-container" data-iframe="true" data-updated="2024-08-26 12:00">
   <script type="text/javascript">
     var _NY = {
-      HOST: "unav24-stage.pages.dev", // ⚠ WARNING: This will change!
-      BASE_HOST: "unav24-stage.pages.dev",  // ⚠ WARNING: This will change!
+      HOST: "static-assets.ny.gov",
+      BASE_HOST: "www.ny.gov", // Deprecated
       hideSettings: true, // Deprecated
       hideSearch: true,
       showLanguageHeader: false,
@@ -26,7 +26,7 @@ The header embed is the most important part of the UNav. This code must be place
         bundle = document.createElement('script');
         bundle.type = 'text/javascript';
         bundle.async = true;
-        bundle.src = "//unav24-stage.pages.dev/unav/js/unav-bundle.js";  // ⚠ WARNING: This will change!
+        bundle.src = "//static-assets.ny.gov/sites/all/widgets/universal-navigation/js/dist/global-nav-bundle.js";
         head.appendChild(bundle);
     }(document));
   </script>
