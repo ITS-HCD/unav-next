@@ -1,0 +1,1700 @@
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Reg-webfont.eot");
+  src: url("../fonts/ProximaNova-Reg-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ProximaNova-Reg-webfont.woff") format("woff"),
+    url("../fonts/ProximaNova-Reg-webfont.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Bold-webfont.eot");
+  src: url("../fonts/ProximaNova-Bold-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ProximaNova-Bold-webfont.woff") format("woff"),
+    url("../fonts/ProximaNova-Bold-webfont.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Sbold-webfont.eot");
+  src: url("../fonts/ProximaNova-Sbold-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ProximaNova-Sbold-webfont.woff") format("woff"),
+    url("../fonts/ProximaNova-Sbold-webfont.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Proxima Nova";
+  src: url("../fonts/ProximaNova-Xbold-webfont.eot");
+  src: url("../fonts/ProximaNova-Xbold-webfont.eot?#iefix") format("embedded-opentype"),
+    url("../fonts/ProximaNova-Xbold-webfont.woff") format("woff"),
+    url("../fonts/ProximaNova-Xbold-webfont.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+:root {
+  --primary-color: #154973;
+  --secondary-color: #eff6fb;
+  --link-color: #004dd1;
+  --neutral-100: #ededed;
+  --neutral-200: #d0d0ce;
+  --neutral-300: #ababab;
+  --neutral-400: #919191;
+  --neutral-500: #777;
+  --neutral-600: #5e5e5e;
+  --neutral-700: #474747;
+  --neutral-800: #303030;
+  --neutral-900: #1b1b1b;
+  --nys-yellow: #f5aa1c;
+  --nys-blue-dark: #21409a;
+  --nys-blue-light: #27aae1;
+  --search-color: #62666a;
+  --padding-xs: 0.25rem;
+  --padding-s: 0.5rem;
+  --padding-m: 1rem;
+  --padding-l: 2rem;
+  --padding-xl: 4rem;
+  --primary-font: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --secondary-font: "D Sari", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --primary-font-semibold: "Proxima Nova", "Helvetica Neue", Helvetica,Arial, sans-serif;
+  --primary-font-bold: "Proxima Nova", "Helvetica Neue", Helvetica, Arial,sans-serif;
+  --primary-font-xbold: "Proxima Nova", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --breakpoint-narrow: 768px;
+  --breakpoint-wide: 1024px;
+  --breakpoint-xwide: 1280px;
+  --breakpoint-full: 1336px;
+}
+#nys-universal-navigation .el-is-hidden,
+#nygov-universal-footer .el-is-hidden {
+  display: none;
+}
+#nys-universal-navigation .el-sr-only,
+#nygov-universal-footer .el-sr-only {
+  position: absolute;
+  left: -9999em;
+  right: auto;
+}
+.nys-unav {
+  background: #fff;
+}
+.nys-unav * {
+  box-sizing: border-box;
+}
+#nygov-universal-navigation-frame {
+  display: block;
+  border: none;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+#nygov-universal-navigation-frame .nys-languages__button svg path,
+#nygov-universal-navigation-frame .nys-header__button svg path,
+#nygov-universal-navigation-frame .nys-search-icon__closebutton svg path,
+#nygov-universal-navigation-frame .nys-languages__buttonclose svg path,
+#nys-universal-navigation .nys-languages__button svg path,
+#nys-universal-navigation .nys-header__button svg path,
+#nys-universal-navigation .nys-search-icon__closebutton svg path,
+#nys-universal-navigation .nys-languages__buttonclose svg path {
+  fill: var(--primary-color);
+}
+#nygov-universal-navigation-frame .nys-header,
+#nys-universal-navigation .nys-header {
+  position: relative;
+  padding: var(--padding-s) 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px;
+  height: 60px;
+}
+#nygov-universal-navigation-frame .nys-logo,
+#nys-universal-navigation .nys-logo {
+  height: 55px;
+  max-height: 55px;
+  vertical-align: middle;
+}
+#nygov-universal-navigation-frame .nys-logo path.st0,
+#nys-universal-navigation .nys-logo path.st0 {
+  fill: #457aa5;
+}
+#nygov-universal-navigation-frame .nys-logo path.st1,
+#nys-universal-navigation .nys-logo path.st1 {
+  fill: #154973;
+}
+#nygov-universal-navigation-frame .nys-header__logo a svg,
+#nys-universal-navigation .nys-header__logo a svg {
+  width: 85px;
+  border: 2px solid #fff;
+  border-radius: 4px;
+}
+#nygov-universal-navigation-frame .nys-header__logo a svg:hover,
+#nys-universal-navigation .nys-header__logo a svg:hover {
+  border: 2px solid #457aa5;
+  display: block;
+}
+#nygov-universal-navigation-frame .nys-spacer,
+#nys-universal-navigation .nys-spacer {
+  flex: 1 1 auto;
+}
+#nygov-universal-navigation-frame .nys-hide-unav-search,
+#nygov-universal-navigation-frame .nys-hide-unav-settings,
+#nys-universal-navigation .nys-hide-unav-search,
+#nys-universal-navigation .nys-hide-unav-settings {
+  display: none !important;
+}
+#nygov-universal-navigation-frame .nys-languages__button,
+#nygov-universal-navigation-frame .nys-header__button,
+#nygov-universal-navigation-frame .nys-search-icon__closebutton,
+#nygov-universal-navigation-frame .nys-languages__buttonclose,
+#nys-universal-navigation .nys-languages__button,
+#nys-universal-navigation .nys-header__button,
+#nys-universal-navigation .nys-search-icon__closebutton,
+#nys-universal-navigation .nys-languages__buttonclose {
+  display: block;
+  font-family: var(--primary-font);
+  font-weight: bold;
+  background: none;
+  border: none;
+  color: var(--primary-color);
+  cursor: pointer;
+  font-size: 22px;
+  padding: 4px 5px;
+  height: 44px;
+  width: 44px;
+}
+#nygov-universal-navigation-frame .nys-languages__button svg,
+#nygov-universal-navigation-frame .nys-header__button svg,
+#nygov-universal-navigation-frame .nys-search-icon__closebutton svg,
+#nygov-universal-navigation-frame .nys-languages__buttonclose svg,
+#nys-universal-navigation .nys-languages__button svg,
+#nys-universal-navigation .nys-header__button svg,
+#nys-universal-navigation .nys-search-icon__closebutton svg,
+#nys-universal-navigation .nys-languages__buttonclose svg {
+  vertical-align: middle;
+}
+#nygov-universal-navigation-frame .nys-menu .nys-languages__button,
+#nygov-universal-navigation-frame .nys-menu .nys-header__button,
+#nys-universal-navigation .nys-menu .nys-languages__button,
+#nys-universal-navigation .nys-menu .nys-header__button {
+  width: 100%;
+}
+#nygov-universal-navigation-frame .nys-search-icon__closebutton,
+#nys-universal-navigation .nys-search-icon__closebutton {
+  display: none;
+}
+#nygov-universal-navigation-frame .nys-search-icon__closebutton.el-is-active,
+#nys-universal-navigation .nys-search-icon__closebutton.el-is-active {
+  display: block;
+  margin-left: 5px;
+}
+#nygov-universal-navigation-frame .nys-languages .nys-header__button-text,
+#nygov-universal-navigation-frame .nys-languages .nys-header__action-icon,
+#nys-universal-navigation .nys-languages .nys-header__button-text,
+#nys-universal-navigation .nys-languages .nys-header__action-icon {
+  display: none;
+}
+#nygov-universal-navigation-frame .nys-languages__content,
+#nys-universal-navigation .nys-languages__content {
+  display: none;
+  position: absolute;
+  z-index: 999;
+  background: #ededed;
+  top: 60px;
+  max-width: 230px;
+  right: 20px;
+}
+#nygov-universal-navigation-frame .nys-languages__content.el-is-active,
+#nys-universal-navigation .nys-languages__content.el-is-active {
+  display: block;
+}
+#nygov-universal-navigation-frame .nys-languages__list,
+#nys-universal-navigation .nys-languages__list {
+  margin: 0;
+  list-style: none;
+  padding: var(--padding-xs) 0 var(--padding-m);
+}
+#nygov-universal-navigation-frame .nys-languages__list a,
+#nys-universal-navigation .nys-languages__list a {
+  display: block;
+  background-color: #ededed;
+  color: var(--primary-color);
+  font-family: "Proxima Nova", sans-serif !important;
+  font-size: 16px;
+  padding: 16px 40px 16px 30px;
+  text-decoration: none;
+  font-weight: bold;
+}
+#nygov-universal-navigation-frame .nys-languages__content a:hover,
+#nygov-universal-navigation-frame .nys-languages__content a:focus,
+#nys-universal-navigation .nys-languages__content a:hover,
+#nys-universal-navigation .nys-languages__content a:focus {
+  background-color: #d0d0ce;
+  color: var(--primary-color);
+}
+#nygov-universal-navigation-frame .el-is-active .nys-header__action-icon,
+#nys-universal-navigation .el-is-active .nys-header__action-icon {
+  transform: rotate(180deg);
+}
+#nygov-universal-navigation-frame
+  .nys-languages.el-is-active
+  button.nys-languages__button,
+#nys-universal-navigation
+  .nys-languages.el-is-active
+  button.nys-languages__button {
+  display: none;
+}
+@media screen and (min-width: 768px) {
+  #nygov-universal-navigation-frame .nys-header,
+  #nys-universal-navigation .nys-header {
+    padding: var(--padding-s) 35px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #nygov-universal-navigation-frame .nys-languages__button,
+  #nys-universal-navigation .nys-languages__button {
+    font-weight: normal;
+  }
+  #nygov-universal-navigation-frame .nys-languages__list a,
+  #nys-universal-navigation .nys-languages__list a {
+    padding: 16px 40px 16px 46px;
+  }
+  #nygov-universal-navigation-frame
+    .nys-languages
+    #nys-languages__button-text.nys-header__button-text,
+  #nygov-universal-navigation-frame .nys-languages .nys-header__action-icon,
+  #nys-universal-navigation
+    .nys-languages
+    #nys-languages__button-text.nys-header__button-text,
+  #nys-universal-navigation .nys-languages .nys-header__action-icon {
+    display: inline-block !important;
+    margin-left: var(--padding-xs);
+    margin-top: 2px;
+    vertical-align: middle;
+  }
+  #nygov-universal-navigation-frame .nys-languages__content,
+  #nys-universal-navigation .nys-languages__content {
+    right: auto;
+  }
+  #nygov-universal-navigation-frame .nys-languages__buttonclose.el-is-active,
+  #nygov-universal-navigation-frame .nys-search-icon__closebutton.el-is-active,
+  #nys-universal-navigation .nys-languages__buttonclose.el-is-active,
+  #nys-universal-navigation .nys-search-icon__closebutton.el-is-active {
+    display: none;
+  }
+  #nygov-universal-navigation-frame
+    .nys-languages.el-is-active
+    button.nys-languages__button,
+  #nys-universal-navigation
+    .nys-languages.el-is-active
+    button.nys-languages__button {
+    display: block;
+  }
+  #nygov-universal-navigation-frame .nys-languages__button,
+  #nys-universal-navigation .nys-languages__button {
+    width: 144px;
+  }
+  #nygov-universal-navigation-frame .nys-languages__button,
+  #nygov-universal-navigation-frame .nys-header__button,
+  #nygov-universal-navigation-frame .nys-search-icon__closebutton,
+  #nygov-universal-navigation-frame .nys-languages__buttonclose,
+  #nys-universal-navigation .nys-languages__button,
+  #nys-universal-navigation .nys-header__button,
+  #nys-universal-navigation .nys-search-icon__closebutton,
+  #nys-universal-navigation .nys-languages__buttonclose {
+    font-size: 16px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #nygov-universal-navigation-frame .nys-header,
+  #nys-universal-navigation .nys-header {
+    padding: var(--padding-s) 60px;
+  }
+}
+#nygov-universal-navigation-frame .el-is-hidden,
+#nys-universal-navigation .el-is-hidden {
+  display: none;
+}
+#nygov-universal-navigation-frame .el-sr-only,
+#nys-universal-navigation .el-sr-only {
+  position: absolute;
+  left: -9999em;
+  right: auto;
+}
+#nys-universal-navigation .nys-trustbar--mob,
+#nys-universal-navigation .nys-trustbar--inline {
+  font-size: 0.75em;
+  line-height: 1.3;
+  position: relative;
+}
+#nys-universal-navigation .nys-trustbar--mob {
+  color: var(--neutral-900);
+  background: var(--neutral-200);
+  padding: 10px 20px;
+}
+#nys-universal-navigation .nys-trustbar__actions {
+  margin-left: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: space-between;
+  justify-content: space-between;
+}
+#nys-universal-navigation .nys-trustbar__actions > div > p {
+  display: flex;
+}
+#nys-universal-navigation .nys-trustbar__action {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  text-decoration: underline;
+  color: var(--primary-color);
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-trustbar__action-icon {
+  max-width: 8px;
+  margin: 0 0 0 4px;
+  align-self: center;
+}
+#nys-universal-navigation .nys-trustbar__action-icon path {
+  fill: var(--primary-color);
+}
+#nys-universal-navigation .nys-trustbar__icon {
+  overflow: visible !important;
+}
+#nys-universal-navigation .el-is-active .nys-trustbar__action-icon {
+  transform: rotate(180deg);
+}
+#nys-universal-navigation .nys-trustbar--inline {
+  display: none;
+}
+#nys-universal-navigation .nys-trustbar__button {
+  font-family: var(--primary-font);
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+  font-weight: 400;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  color: var(--primary-color);
+  display: flex;
+  font-size: 0.75em;
+  height: auto;
+  line-height: 1.3;
+  text-decoration: underline;
+  cursor: pointer;
+  width: 100%;
+}
+#nys-universal-navigation .nys-trustbar__actions:hover .nys-trustbar__action,
+#nys-universal-navigation .nys-trustbar__actions:active .nys-trustbar__action {
+  font-weight: bold;
+  text-decoration-thickness: 2px;
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-trustbar__button-text {
+  position: absolute;
+  left: -999em;
+  right: auto;
+  font-size: 1em;
+}
+#nys-universal-navigation .nys-trustbar__button:active {
+  text-decoration-thickness: 1px;
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-trustbar__button:hover > span {
+  color: var(--primary-color);
+  text-decoration-thickness: 2px;
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-trustbar__button svg {
+  vertical-align: middle;
+}
+#nys-universal-navigation .nys-trustbar__button,
+#nys-universal-navigation .nys-trustbar__button {
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-trustbar__button:active {
+  color: var(--primary-color);
+  text-decoration-thickness: 2px;
+  font-family: var(--primary-font);
+  font-weight: bold;
+}
+#nys-universal-navigation .nys-trustbar__close {
+  background: none;
+  border: none;
+  color: var(--neutral-900);
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: none;
+  font-family: var(--primary-font);
+  text-align: left;
+  white-space: nowrap;
+  visibility: hidden;
+}
+#nys-universal-navigation .nys-trustbar--mob .nys-trustbar__close {
+  display: flex;
+  position: absolute;
+  top: 5px;
+  right: 7px;
+}
+#nys-universal-navigation .nys-trustbar__close:active {
+  text-decoration: none;
+}
+#nys-universal-navigation .nys-trustbar__close svg {
+  height: 24px;
+  width: 24px;
+  vertical-align: middle;
+}
+#nys-universal-navigation .nys-trustbar__close svg path {
+  fill: var(--primary-color);
+}
+#nys-universal-navigation .nys-trustbar__close:active svg,
+#nys-universal-navigation .nys-trustbar__close:hover svg {
+  border: 2px solid #000;
+  border-radius: 4px;
+}
+#nys-universal-navigation .nys-trustbar__close:active svg path,
+#nys-universal-navigation .nys-trustbar__close:hover svg path {
+  fill: #000;
+}
+#nys-universal-navigation .el-is-active .nys-trustbar__close {
+  visibility: visible;
+}
+#nys-universal-navigation .nys-trustbar__contentmob,
+#nys-universal-navigation .nys-trustbar__content {
+  display: none;
+  font-size: 1rem;
+  line-height: 1.3;
+  padding: 0 0 25px;
+  color: var(--neutral-900);
+  background: var(--neutral-100);
+  width: 100%;
+  overflow: hidden;
+  transition: height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+#nys-universal-navigation .nys-trustbar__contentmob.el-is-active {
+  display: block;
+}
+#nys-universal-navigation .nys-trustbar__contentmob.el-is-active,
+#nys-universal-navigation .nys-trustbar__contentmob.el-is-active button {
+  display: block;
+}
+#nys-universal-navigation .nys-trustbar__text {
+  padding: 0;
+  margin: 0 15px 0 0;
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-trustbar__contentmob p,
+#nys-universal-navigation .nys-trustbar__content p {
+  margin: var(--padding-s) 0 0;
+  padding: 0;
+  font-size: 14px;
+}
+#nys-universal-navigation .nys-trustbar__contentmob p strong,
+#nys-universal-navigation .nys-trustbar__content p strong {
+  color: var(--primary-color);
+}
+#nys-universal-navigation .nys-trustbar__guidance {
+  padding: 25px 35px 0;
+  display: block;
+  justify-content: space-between;
+  gap: var(--padding-s);
+}
+#nys-universal-navigation .nys-trustbar-block__body {
+  font-size: 14px;
+  flex: 1 1 auto;
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-trustbar__actions-content > p {
+  font-size: 12px;
+}
+@media screen and (min-width: 400px) {
+  #nys-universal-navigation .nys-trustbar__actions-content {
+    display: flex;
+    align-items: baseline;
+  }
+  #nys-universal-navigation .nys-trustbar__action,
+  #nys-universal-navigation .nys-trustbar__text {
+    font-size: 12px;
+  }
+  #nys-universal-navigation
+    .nys-trustbar__actions-content
+    .nys-trustbar__button {
+    font-size: 14px;
+  }
+  #nys-universal-navigation .nys-trustbar__action {
+    font-family: var(--primary-font);
+  }
+  #nys-universal-navigation .nys-trustbar__action-icon {
+    margin: 0 0 2px 4px;
+  }
+}
+@media screen and (min-width: 768px) {
+  #nys-universal-navigation .nys-trustbar__text {
+    margin: 0 15px 0 0;
+    height: auto;
+  }
+  #nys-universal-navigation .nys-trustbar--mob {
+    display: none;
+  }
+  #nys-universal-navigation .nys-trustbar--inline {
+    display: block;
+  }
+  #nys-universal-navigation .nys-trustbar__action-icon {
+    margin: 0 0 0 4px;
+    width: 12px;
+    height: 8px;
+  }
+  #nys-universal-navigation .nys-trustbar--inline .nys-trustbar__close {
+    display: none;
+  }
+  #nys-universal-navigation .nys-trustbar__contentmob.el-is-active,
+  #nys-universal-navigation .nys-trustbar__contentmob.el-is-active button {
+    display: none;
+  }
+  #nys-universal-navigation .nys-trustbar__content.el-is-active,
+  #nys-universal-navigation .nys-trustbar__content.el-is-active button {
+    display: flex;
+  }
+  #nys-universal-navigation .nys-trustbar__content.el-is-active button {
+    margin: 20px 20px 0 0;
+    height: 24px;
+    width: 24px;
+  }
+  #nys-universal-navigation .nys-trustbar__content {
+    background: #ededed;
+    position: absolute;
+    top: 60px;
+    z-index: 999;
+    left: 0;
+  }
+  #nys-universal-navigation .el-is-active .nys-trustbar__action {
+    display: block;
+  }
+  #nys-universal-navigation .nys-trustbar__guidance {
+    max-width: 46%;
+    display: block;
+    padding: 20px 35px 0 35px;
+  }
+  #nys-universal-navigation .nys-trustbar__guidance:first-child {
+    padding-right: 10px;
+  }
+  #nys-universal-navigation .nys-trustbar__action {
+    display: none;
+  }
+  #nys-universal-navigation .nys-trustbar__button {
+    width: auto;
+    height: auto;
+    bottom: auto;
+    left: auto;
+    right: auto;
+    top: auto;
+    display: inline;
+    position: relative;
+  }
+  #nys-universal-navigation .nys-trustbar__button-text {
+    position: static;
+    display: block;
+    height: auto;
+    font-size: 12px;
+    color: var(--primary-color);
+  }
+  #nys-universal-navigation .el-is-active .nys-trustbar__action {
+    display: none;
+  }
+  #nys-universal-navigation .el-is-active .nys-trustbar__content {
+    display: flex;
+    align-items: flex-start;
+    justify-content: left;
+    flex-wrap: nowrap;
+  }
+  #nys-universal-navigation .el-is-active .nys-trustbar__content > * {
+    max-width: 480px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #nys-universal-navigation .nys-trustbar__guidance {
+    padding: 20px 35px 0 35px;
+  }
+  #nys-universal-navigation .nys-trustbar__guidance:first-child {
+    padding-left: 65px;
+  }
+}
+html[dir="rtl"] #nys-universal-navigation .nys-trustbar__button,
+html[dir="rtl"] #nys-universal-navigation .nys-trustbar__action,
+body[dir="rtl"] #nys-universal-navigation .nys-trustbar__button,
+body[dir="rtl"] #nys-universal-navigation .nys-trustbar__action {
+  padding-right: 10px;
+}
+@media screen and (min-width: 768px) {
+  html[dir="rtl"] #nys-universal-navigation .nys-trustbar__guidance:first-child,
+  body[dir="rtl"]
+    #nys-universal-navigation
+    .nys-trustbar__guidance:first-child {
+    padding-right: 35px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  html[dir="rtl"] #nys-universal-navigation .nys-trustbar__guidance:first-child,
+  body[dir="rtl"]
+    #nys-universal-navigation
+    .nys-trustbar__guidance:first-child {
+    padding-right: 65px;
+    padding-left: 0;
+  }
+}
+#nys-universal-navigation input[type="text"] {
+  height: auto !important;
+  margin: 0;
+}
+#nys-universal-navigation .nys-search__form {
+  display: flex;
+  align-items: center;
+  margin: 4px 0;
+  border-radius: 5px;
+  border: 2px solid #d0d0ce;
+  background: #fff;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  clear: both;
+}
+#nys-universal-navigation .nys-search__icon {
+  width: 1.2rem;
+  height: 1.2rem;
+  margin-right: var(--padding-s);
+}
+#nys-universal-navigation .nys-search__icon svg path {
+  fill: var(--primary-color);
+}
+#nys-universal-navigation .nys-search__input {
+  font-size: 18px;
+  padding: var(--padding-s);
+  padding-left: 0;
+  flex-grow: 1;
+  border: none;
+  outline: none;
+  background: rgba(0, 0, 0, 0);
+}
+#nys-universal-navigation .nys-search__button-container {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-color);
+  height: auto;
+  border: 2px solid var(--primary-color);
+}
+#nys-universal-navigation .nys-search__button:hover,
+#nys-universal-navigation .nys-search__button-container:hover {
+  background-color: #000;
+}
+#nys-universal-navigation .nys-search__button {
+  font-family: var(--primary-font);
+  padding: var(--padding-s);
+  border: none;
+  background: rgba(0, 0, 0, 0);
+  color: var(--primary-color);
+  cursor: pointer;
+  font-weight: bold;
+  width: 45px;
+  height: 36px;
+}
+#nys-universal-navigation .nys-search__button:focus {
+  color: var(--link-color);
+}
+#nys-universal-navigation .nys-search__button-divider {
+  display: block;
+  width: 1px;
+  height: 30px;
+  background-color: var(--neutral-600);
+  margin-right: 10px;
+}
+#nys-universal-navigation .nys-search--narrow {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+  position: relative;
+}
+#nys-universal-navigation .nys-search--narrow.el-is-hidden {
+  display: none;
+}
+#nys-universal-navigation .nys-search__close {
+  background: none;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: inherit;
+  padding: 0;
+  text-decoration: none;
+  font-family: var(--primary-font);
+  text-align: left;
+  white-space: nowrap;
+  margin-left: auto;
+  display: none;
+}
+#nys-universal-navigation .nys-search__close:focus,
+#nys-universal-navigation .nys-search__close:hover {
+  text-decoration: none;
+}
+#nys-universal-navigation .nys-search__close svg {
+  height: 24px;
+  width: 24px;
+  vertical-align: middle;
+}
+#nys-universal-navigation .el-is-active .nys-search__close {
+  display: block;
+}
+#nys-universal-navigation .nys-search__close svg path {
+  fill: #62666a !important;
+}
+#nys-universal-navigation
+  .nys-search--narrow__content
+  .nys-search__close
+  svg
+  path {
+  font-size: 18px;
+}
+#nys-universal-navigation .nys-search--narrow__content .nys-search__input {
+  padding-left: 14px;
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation .nys-search--narrow__content .nys-search__close {
+  display: none;
+  margin: 0 15px;
+}
+#nys-universal-navigation
+  .nys-search__form-narrow:focus-within
+  .nys-search__close {
+  display: block;
+}
+#nys-universal-navigation .nys-search--narrow__content {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background: #ededed;
+  padding: var(--padding-m) 20px;
+  z-index: 999;
+}
+#nys-universal-navigation .nys-search--narrow__content.el-is-active {
+  display: block;
+  max-height: 85px;
+  font-family: var(--primary-font);
+}
+#nys-universal-navigation
+  .nys-search--narrow__content
+  .nys-banner__close
+  svg
+  path {
+  fill: #fff !important;
+}
+#nys-universal-navigation
+  .nys-search__button-container
+  .nys-search__button
+  svg
+  path {
+  fill: #fff !important;
+}
+#nys-universal-navigation .nys-search--wide {
+  display: none;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__form {
+  margin: 0;
+  border-color: #d0d0ce;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__button-divider {
+  height: 20px;
+  margin-right: 5px;
+}
+#nys-universal-navigation .nys-search--wide.el-is-active .nys-search__input {
+  padding: 6px 10px 6px 12px;
+  font-size: 16px;
+  border-color: #457aa5;
+}
+#nys-universal-navigation .el-is-active .nys-search__form:focus-within {
+  border: 3px solid #457aa5;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__input {
+  padding: 8px 10px 6px 12px;
+  font-size: 16px;
+  overflow: auto;
+  font-family: var(--primary-font-semibold);
+}
+#nys-universal-navigation
+  .nys-search--narrow__content
+  .nys-search__input::-moz-placeholder {
+  font-family: var(--primary-font-semibold);
+  font-size: 18px;
+}
+#nys-universal-navigation
+  .nys-search--narrow__content
+  .nys-search__input::placeholder {
+  font-family: var(--primary-font-semibold);
+  font-size: 18px;
+}
+#nys-universal-navigation
+  .nys-search--wide
+  .nys-search__input::-moz-placeholder {
+  font-family: var(--primary-font-semibold);
+  font-size: 16px;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__input::placeholder {
+  font-family: var(--primary-font-semibold);
+  font-size: 16px;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__button-container {
+  display: flex;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__button {
+  font-size: 13px;
+  height: 30px;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__button svg {
+  height: 14px;
+  width: 14px;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__form {
+  width: 240px;
+}
+#nys-universal-navigation
+  .nys-search--wide.el-is-active:focus-within
+  .nys-search__form {
+  position: absolute;
+  z-index: 999;
+  width: 400px;
+  right: 35px;
+  margin: 2px 0;
+  transition: width 0.5s;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__button,
+#nys-universal-navigation
+  .nys-search--wide.ele-is-active:focus-within
+  .nys-search__button {
+  padding: 5px;
+}
+#nys-universal-navigation
+  .nys-search--wide.ele-is-active:focus-within
+  .nys-search__button-container {
+  display: flex;
+  padding: 0;
+}
+#nys-universal-navigation .nys-search--wide .nys-search__close svg {
+  height: 24px;
+  width: 24px;
+  margin: 4px 0;
+}
+#nys-universal-navigation .nys-search--wide .nys-banner__close {
+  display: none;
+}
+#nys-universal-navigation .nys-search--wide:focus-within .nys-banner__close {
+  display: block;
+}
+#nys-universal-navigation .nys-search--narrow__label {
+  color: var(--search-color);
+  font-size: 18px;
+}
+#nys-universal-navigation .nys-search--wide__label {
+  color: var(--search-color);
+  font-size: 16px;
+}
+@media screen and (min-width: 768px) {
+  #nys-universal-navigation .nys-search--narrow__content {
+    padding: var(--padding-m) 35px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #nys-universal-navigation .nys-search__form {
+    flex-basis: content;
+  }
+  #nys-universal-navigation .nys-search__form:focus-within {
+    flex-basis: content;
+  }
+  #nys-universal-navigation .nys-search__input {
+    font-size: 16px;
+  }
+  #nys-universal-navigation .nys-search--narrow,
+  #nys-universal-navigation .nys-search--narrow__content,
+  #nys-universal-navigation .nys-search--narrow__content.el-is-active {
+    display: none;
+  }
+  #nys-universal-navigation .nys-search--wide {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: nowrap;
+  }
+  #nys-universal-navigation
+    .nys-search--wide.ele-is-active
+    .nys-search__button-container {
+    padding: 0;
+  }
+  #nys-universal-navigation .nys-search--wide.ele-is-active .nys-search__close {
+    display: flex;
+    font-size: 18px;
+  }
+  #nys-universal-navigation
+    .nys-search--wide.ele-is-active:focus-within
+    .nys-search__close {
+    display: flex;
+    font-size: 18px;
+  }
+  #nys-universal-navigation .nys-search--wide .nys-search__close {
+    padding: 0 10px;
+  }
+  #nys-universal-navigation
+    .nys-search--wide.ele-is-active
+    .nys-search__close
+    svg
+    path {
+    fill: #62666a !important;
+    font-size: 18px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  #nys-universal-navigation
+    .nys-search--wide.el-is-active:focus-within
+    .nys-search__form {
+    right: 60px;
+  }
+}
+@media screen and (min-width: 1400px) {
+  #nys-universal-navigation
+    .nys-search--wide.el-is-active:focus-within
+    .nys-search__form {
+    width: 450px;
+  }
+}
+html[dir="rtl"]
+  #nys-universal-navigation
+  .nys-search--wide.el-is-active:focus-within
+  .nys-search__form,
+body[dir="rtl"]
+  #nys-universal-navigation
+  .nys-search--wide.el-is-active:focus-within
+  .nys-search__form {
+  position: absolute;
+  left: 35px;
+  right: unset;
+}
+@media screen and (min-width: 1280px) {
+  html[dir="rtl"]
+    #nys-universal-navigation
+    .nys-search--wide.el-is-active:focus-within
+    .nys-search__form,
+  body[dir="rtl"]
+    #nys-universal-navigation
+    .nys-search--wide.el-is-active:focus-within
+    .nys-search__form {
+    left: 60px;
+    right: unset;
+  }
+}
+#nys-universal-navigation .nys-flex-container {
+  display: flex;
+  align-items: center;
+}
+#nys-universal-navigation .nys-flex-container img {
+  margin: 10px;
+  width: 100px;
+  height: auto;
+}
+#nys-universal-navigation .nys-flex-container .nys-title-text {
+  margin: 10px;
+  flex-grow: 1;
+}
+#nys-universal-navigation .nys-transparent-background {
+  background-color: rgba(0, 0, 0, 0) !important;
+  background-size: cover;
+  background-size: border-box !important;
+  border: none !important;
+}
+#nys-universal-navigation .nys-icon-img::before {
+  display: inline-block;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+}
+#nys-universal-navigation .nys-icon-img {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 47px;
+  height: 20px;
+  border: 1px solid #fff;
+  background-color: rgba(0, 0, 0, 0);
+  margin-left: -15px;
+  margin-right: 3px;
+}
+
+#nygov-universal-footer-frame {
+  display: block;
+  border: none;
+  overflow: hidden;
+  width: 100%;
+  height: auto;
+  background-color: #fff;
+  margin: 0;
+  padding: 0;
+}
+#nygov-universal-footer footer,
+#nygov-universal-footer footer a {
+  color: #fff;
+}
+#nygov-universal-footer footer a:focus-visible,
+#nygov-universal-footer footer button:focus-visible {
+  outline: #face00 auto 1px;
+}
+#nygov-universal-footer .nys-footer-cta__button {
+  letter-spacing: 2px;
+}
+#nygov-universal-footer .nys-footer-nygov-link__button {
+  background-color: rgba(0, 0, 0, 0);
+  border: 0;
+}
+#nygov-universal-footer .nys-footer-wrapper {
+  z-index: 11;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+#nygov-universal-footer .el-is-active .nys-footer__action-icon {
+  transform: rotate(180deg);
+}
+#nygov-universal-footer .nys-footer-cta__button {
+  font-family: var(--primary-font-bold);
+  cursor: pointer;
+  text-transform: uppercase;
+}
+#nygov-universal-footer .nys-footer-container {
+  font-family: var(--primary-font);
+  background-color: #000;
+}
+#nygov-universal-footer .nys-footermenu li a {
+  font-size: 16px;
+  line-height: 1.125em;
+  letter-spacing: 0.5px;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+#nygov-universal-footer .nys-footer-ts-text a:active,
+#nygov-universal-footer .nys-footer-ts-text a:hover,
+#nygov-universal-footer .nys-footer-ts-text a:focus,
+#nygov-universal-footer .nys-footer__button-text:active,
+#nygov-universal-footer .nys-footer__button-text:hover,
+#nygov-universal-footer .nys-footer__button-text:focus,
+#nygov-universal-footer .nys-footer-trans-text:active,
+#nygov-universal-footer .nys-footer-trans-text:hover,
+#nygov-universal-footer .nys-footer-trans-text:focus,
+#nygov-universal-footer .nys-footermenu-bottom a:active,
+#nygov-universal-footer .nys-footermenu-bottom a:hover,
+#nygov-universal-footer .nys-footermenu-bottom a:focus,
+#nygov-universal-footer .nys-footermenu li a:active,
+#nygov-universal-footer .nys-footermenu li a:hover,
+#nygov-universal-footer .nys-footermenu li a:focus {
+  color: #face00;
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  background-color: rgba(0, 0, 0, 0);
+}
+#nygov-universal-footer .nys-footer-cta__button:hover,
+#nygov-universal-footer .nys-footer-cta__button:active,
+#nygov-universal-footer .nys-footer-cta__button:focus {
+  background-color: #face00;
+}
+#nygov-universal-footer .nys-footer-ts-text {
+  font-family: var(--primary-font);
+}
+#nygov-universal-footer .nys_footer_state_icon {
+  height: 60px;
+  width: 85px;
+  margin: 0;
+  align-items: center;
+  cursor: pointer;
+}
+#nygov-universal-footer .nys-footer-nygov-link__button {
+  border: 2px solid rgba(0, 0, 0, 0);
+  border-radius: 6px;
+}
+#nygov-universal-footer .nys-footer-nygov-link__button:focus,
+#nygov-universal-footer .nys-footer-nygov-link__button:hover,
+#nygov-universal-footer .nys-footer-nygov-link__button:active {
+  border: 2px solid #face00;
+  border-radius: 6px;
+}
+#nygov-universal-footer .nys-footer-nygov-link__button:focus path,
+#nygov-universal-footer .nys-footer-nygov-link__button:hover path,
+#nygov-universal-footer .nys-footer-nygov-link__button:active path {
+  fill: #face00;
+}
+#nygov-universal-footer .nys-footermenu {
+  display: flex;
+  align-items: self-start;
+  justify-content: left;
+  flex-wrap: wrap;
+}
+#nygov-universal-footer .nys-footer-second {
+  width: 100%;
+  border-top: 2px solid #62666a;
+  overflow: hidden;
+}
+#nygov-universal-footer .nys-footer {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+}
+#nygov-universal-footer .nys-footer__action-icon__inner {
+  padding: 0 0 15px;
+}
+#nygov-universal-footer .nys-footer__action-icon {
+  display: flex;
+  align-items: center;
+  right: 20px;
+}
+#nygov-universal-footer .nys-footer-cta {
+  display: block;
+  text-align: center;
+}
+#nygov-universal-footer .nys-footer-container__contentlinks {
+  display: flex;
+  flex-direction: column;
+}
+#nygov-universal-footer .nys-footer-cta__description {
+  line-height: normal;
+}
+@media only screen and (max-width: 1023px) {
+  #nygov-universal-footer .nys-footer__action-icon {
+    right: 20px;
+    height: 16px;
+    width: 16px;
+  }
+}
+@media only screen and (max-width: 460px) {
+  #nygov-universal-footer .nys-footer-container__content {
+    margin: 30px 20px 30px 20px;
+  }
+  #nygov-universal-footer .nys-footer__button-text:active {
+    color: #face00;
+  }
+  #nygov-universal-footer .nys-footer-cta__description {
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-top: 20px;
+  }
+  #nygov-universal-footer .nys-footer__action-icon {
+    right: 20px;
+    height: 16px;
+    width: 16px;
+  }
+  #nygov-universal-footer .nys-footer-image {
+    text-align: center;
+    margin: 0px 0px 0px 0px;
+  }
+  #nygov-universal-footer .nys-footermenu a {
+    font-size: 16px;
+    font-family: var(--primary-font);
+    color: #fff;
+  }
+  #nygov-universal-footer .nys-footer-second .nys-container p {
+    margin-top: 20px;
+    margin-left: 26px;
+    float: left;
+    padding-left: 35px;
+    width: 100%;
+    margin-bottom: 100px;
+  }
+  #nygov-universal-footer .nys-footermenu.nys-second-div li {
+    display: flex;
+    align-items: center;
+  }
+  #nygov-universal-footer .nys-second-div {
+    width: 100%;
+  }
+  #nygov-universal-footer .nys-footermenu {
+    align-self: center;
+    flex-wrap: wrap;
+    white-space: nowrap;
+    margin: 5px 0px 5px 0px;
+    padding: 0;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom-ul {
+    padding: 0;
+    font-family: var(--primary-font);
+  }
+  #nygov-universal-footer .nys-footermenu-bottom a {
+    color: #fff;
+  }
+  #nygov-universal-footer .nys-footer-ts-text {
+    font-size: 16px;
+    text-decoration: underline;
+    margin: 0px 0px 40px 0px;
+  }
+  #nygov-universal-footer .nys-footer-trans-text {
+    margin: 0px 0px 0px 0px;
+    font-size: 16px;
+    text-decoration: none;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom li {
+    width: 49%;
+    margin: 0px 0px 20px 0px;
+    text-decoration: underline;
+    white-space: nowrap;
+    font-size: 16px;
+    display: inline-block;
+  }
+  #nygov-universal-footer .nys-footer-cta__button {
+    height: 50px;
+    line-height: 0.9rem;
+    font-size: 13px;
+    font-weight: bold;
+    max-width: 250px;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    color: #000;
+    background-color: #fff;
+  }
+  #nygov-universal-footer .nys-footer-cta__description {
+    font-size: 14px;
+    padding-top: 20px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  #nygov-universal-footer .nys-footer-image {
+    text-align: center;
+  }
+  #nygov-universal-footer .nys-footermenu.nys-second-div {
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px 30px;
+    justify-content: center;
+    margin: 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+}
+@media only screen and (min-width: 461px) {
+  #nygov-universal-footer .nys-footer-container__content {
+    margin: 30px 20px 30px 20px;
+  }
+  #nygov-universal-footer .nys-footermenu a {
+    font-size: 16px;
+  }
+  #nygov-universal-footer .nys-footermenu {
+    margin: 10px 0px 0px 0px;
+  }
+  #nygov-universal-footer .nys-second-div {
+    padding: 0;
+  }
+  #nygov-universal-footer .nys-footermenu.nys-second-div li {
+    list-style: none;
+  }
+  #nygov-universal-footer .nys-footer-vote {
+    margin: 30px 25px 30px 35px;
+    width: 27%;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+    padding-left: 20px;
+  }
+  #nygov-universal-footer .nys-footer-vote a {
+    margin: 30px 30px 30px 10px;
+    padding: 30px 25px 0 38px;
+    background: #fff;
+    color: #000;
+    border-radius: 15px;
+    font-size: 16px;
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    width: 75%;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  #nygov-universal-footer .nys-footer-vote p {
+    display: inline-block;
+    margin-left: 0px;
+    font-size: 14px;
+    color: #fff;
+    width: 115%;
+  }
+  #nygov-universal-footer .nys-footer-ts-text {
+    font-size: 16px;
+    text-decoration: underline;
+    margin: 0px 0px 40px 0px;
+  }
+  #nygov-universal-footer .nys-lang-text {
+    display: none;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom li {
+    width: 25%;
+    font-size: 16px;
+    padding: 0px 0px 20px 0px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  #nygov-universal-footer .nys-footer-trans-text {
+    margin: 0px 0px 0px 0px;
+    font-size: 16px;
+    text-decoration: none;
+    color: #fff;
+  }
+  #nygov-universal-footer .nys-footer-cta__button {
+    height: 50px;
+    line-height: 0.9rem;
+    font-size: 13px;
+    font-weight: bold;
+    max-width: 250px;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    background-color: #fff;
+    color: #000;
+  }
+  #nygov-universal-footer .nys-footer-cta__description {
+    font-size: 14px;
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-top: 20px;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom-ul {
+    padding: 0;
+    font-family: var(--primary-font);
+  }
+}
+@media only screen and (min-width: 768px) {
+  #nygov-universal-footer .nys_footer_state_icon {
+    height: 65px;
+    width: 95px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  #nygov-universal-footer .nys-footer-second .nys-container p {
+    margin-top: 20px;
+    margin-left: 26px;
+    float: left;
+    padding-left: 35px;
+  }
+  #nygov-universal-footer .nys-footer__action-icon {
+    right: 35px;
+    height: 16px;
+    width: 16px;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom li {
+    width: 14%;
+    margin: 0px 35px 0px 35px;
+    white-space: nowrap;
+    display: inline-block;
+  }
+  #nygov-universal-footer .nys-second-div {
+    margin: 0px 0px 0px 0px;
+    padding: 0;
+    width: 100%;
+    margin-left: 15px;
+  }
+  #nygov-universal-footer .nys-footermenu a {
+    font-size: 16px;
+  }
+  #nygov-universal-footer .nys-footer-content {
+    flex-flow: wrap;
+  }
+  #nygov-universal-footer .nys-footer-vote {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin-top: 20px;
+  }
+  #nygov-universal-footer .nys-footer-vote a {
+    width: auto;
+    height: 35px;
+  }
+  #nygov-universal-footer .nys-footer-vote p {
+    max-width: 240px;
+  }
+  #nygov-universal-footer .nys-footer-wrapper {
+    min-height: auto;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 16px;
+  }
+  #nygov-universal-footer .nys-footer-vote a {
+    background: #fff;
+    color: #000;
+    border-radius: 15px;
+    font-size: 20px;
+    display: inline-block;
+    text-align: center;
+    cursor: pointer;
+    height: 50px;
+    width: 42%;
+    font-weight: bold;
+    margin-left: 140px;
+    padding-top: 22px;
+  }
+  #nygov-universal-footer .nys-footer-vote {
+    width: 100%;
+    padding: 0;
+    border: 0;
+    margin-top: 0px;
+  }
+  #nygov-universal-footer .nys-footer-vote p {
+    display: inline-block;
+    margin: 25px 5px 25px 30px;
+    font-size: 14px;
+    color: #fff;
+    line-height: 15px;
+    width: 24%;
+  }
+  #nygov-universal-footer .nys-footermenu.nys-second-div li {
+    margin: 0px 0px 20px 0px;
+    padding: 0px 10px 0px 0px;
+    width: 22%;
+    white-space: nowrap;
+    display: flex;
+    justify-content: flex-start;
+  }
+  #nygov-universal-footer .nys-footer-ts-text {
+    margin: 0px 0px 25px 0px;
+    font-size: 16px;
+  }
+  #nygov-universal-footer .nys-footer-trans-text {
+    font-size: 16px;
+  }
+  #nygov-universal-footer .nys-footer-second span {
+    margin: 0px 0px 0px 0px;
+  }
+  #nygov-universal-footer .nys-lang-text {
+    display: none;
+  }
+  #nygov-universal-footer .nys-footer-cta__button {
+    height: 50px;
+    font-size: 13px;
+    line-height: 0.9rem;
+    font-weight: bold;
+    max-width: 250px;
+    border-radius: 15px;
+    margin: 0px 0px 0px 97px;
+    padding: 10px 20px 10px 20px;
+    background-color: #fff;
+    color: #000;
+    display: block;
+  }
+  #nygov-universal-footer .nys-footer-cta__description {
+    margin: 0px 0px 0px 0px;
+    position: relative;
+    float: right;
+    font-size: 14px;
+    width: 55%;
+    padding-top: 0;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom-ul {
+    padding: 0;
+    font-family: var(--primary-font);
+    margin-top: 15px;
+  }
+  #nygov-universal-footer .nys-footer-container__contentlinks {
+    flex-direction: row;
+  }
+  #nygov-universal-footer .nys-footer-container__content {
+    margin: 30px 35px 30px 35px;
+  }
+  #nygov-universal-footer .nys-footer-transalation__contentinner {
+    margin: 0 0px 0px 35px;
+  }
+  #nygov-universal-footer .nys-footer-cta {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    flex-flow: row;
+    gap: 20px;
+    margin-left: 35px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  #nygov-universal-footer .nys-second-div {
+    padding: 0;
+    margin: 0px 0px 0px 40px;
+    align-items: center;
+    gap: 15px 50px;
+    justify-content: flex-start;
+  }
+  #nygov-universal-footer .nys-footer-vote {
+    width: 156%;
+    border: 0;
+    display: flex;
+    color: #fff;
+    align-items: center;
+    justify-content: center;
+  }
+  #nygov-universal-footer .nys-footer-no-cta.nys-footermenu li {
+    margin: 10px 35px 10px 35px;
+    list-style: none;
+    width: 8%;
+  }
+  #nygov-universal-footer .nys-footermenu li {
+    list-style: none;
+  }
+  #nygov-universal-footer .nys-lang-text {
+    font-size: 16px;
+    display: flex;
+    margin: 30px 35px 0px 35px;
+  }
+  #nygov-universal-footer #nys-languages__button-text {
+    display: none;
+  }
+  #nygov-universal-footer .nys-footermenu a {
+    font-size: 16px;
+  }
+  #nygov-universal-footer .nys-footer-ts-text {
+    font-size: 16px;
+    display: flex;
+    margin: 30px 0px 0px 0px;
+    text-decoration: underline;
+    font-weight: bold;
+  }
+  #nygov-universal-footer .nys-footer-action {
+    display: none;
+  }
+  #nygov-universal-footer .nys-footer-vote a {
+    background: #fff;
+    color: #000;
+    border-radius: 15px;
+    margin: 5px 15px 27px 5px;
+    padding: 25px;
+    font-size: 19px;
+    display: inline-block;
+    text-align: center;
+    height: 50px;
+    width: 12%;
+    font-weight: bold;
+    text-decoration: none;
+  }
+  #nygov-universal-footer .nys-footer-vote p {
+    margin: 60px 46px 30px 0px;
+    font-size: 14px;
+    width: 13%;
+  }
+  #nygov-universal-footer .nys-footermenu a {
+    white-space: nowrap;
+    font-size: 16px;
+  }
+  #nygov-universal-footer .nys-footer-cta__button {
+    height: 50px;
+    font-size: 13px;
+    font-weight: bold;
+    margin: 0px 0px 0px 0px;
+    max-width: 250px;
+    line-height: 0.9rem;
+    border-radius: 15px;
+    padding: 10px 20px 10px 20px;
+    position: relative;
+    background-color: #fff;
+    color: #000;
+    display: block;
+  }
+  #nygov-universal-footer .nys-footer-cta__description {
+    width: 200px;
+    margin: 0px 0px 0px 20px;
+    font-size: 14px;
+    position: relative;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    padding-top: 0;
+    text-align: left;
+  }
+  #nygov-universal-footer .nys-footer-cta {
+    display: flex;
+    margin-left: auto;
+    align-items: center;
+    justify-content: flex-end;
+    box-sizing: border-box;
+    gap: 0;
+    margin-left: 5%;
+  }
+  #nygov-universal-footer .nys-footer-container__contentlinks {
+    display: flex;
+    margin-left: auto;
+    justify-content: flex-end;
+    box-sizing: border-box;
+  }
+  #nygov-universal-footer
+    .nys-footer-navigation.nys-footer-no-cta
+    .nys-footer-container__contentlinks {
+    width: 100%;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom ul li {
+    display: inline-block;
+    width: auto;
+    flex: 0 100%;
+    padding-bottom: 0px;
+    flex-direction: column;
+    margin: 0px 20px 20px 0px;
+  }
+  #nygov-universal-footer .nys-footermenu.nys-second-div li {
+    max-width: 750px;
+    margin: 0;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom-ul {
+    padding: 0;
+    font-family: var(--primary-font);
+  }
+  #nygov-universal-footer .nys-footer-transalation__contentinner {
+    display: flex;
+    flex-direction: row;
+    align-self: center;
+  }
+  #nygov-universal-footer .nys-footer-container__contentlinks {
+    flex-direction: row;
+  }
+  #nygov-universal-footer .nys-footer-container__content {
+    display: flex;
+    align-self: center;
+  }
+  #nygov-universal-footer .nys-footer-second {
+    display: flex;
+  }
+  #nygov-universal-footer .nys-footermenu-bottom a:hover,
+  #nygov-universal-footer .nys-footermenu-bottom a:active,
+  #nygov-universal-footer .nys-footermenu-bottom a:focus {
+    color: #face00;
+    text-decoration: underline;
+    background-color: rgba(0, 0, 0, 0);
+    text-decoration-thickness: 2px;
+  }
+  #nygov-universal-footer .nys-footer-container__content {
+    margin: 30px 35px;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  html[dir="rtl"] #nygov-universal-footer .nys-footer-ts-text,
+  body[dir="rtl"] #nygov-universal-footer .nys-footer-ts-text {
+    margin: 0px 35px 25px 0px;
+  }
+}
+@media screen and (min-width: 1024px) {
+  html[dir="rtl"] #nygov-universal-footer .nys-second-div,
+  body[dir="rtl"] #nygov-universal-footer .nys-second-div {
+    margin: 0 40px 0 40px;
+  }
+}
