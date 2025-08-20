@@ -15,7 +15,6 @@ The updated UNav features:
 ## Getting Started
 
 - [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
-- [UNav Detector](https://bit.ly/unav-check) — Not sure what version of the UNav your site is using? Use the UNav Detector to identify your UNav implementation type, whether it’s hosted on a .ny.gov domain, and if HTTPS is enabled.
 
 ## Technical Details
 
