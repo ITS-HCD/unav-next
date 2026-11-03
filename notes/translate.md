@@ -1,51 +1,94 @@
 # UNav Language Selector
 
-The language selector in the updated UNav is designed to enhance the user experience for multilingual visitors by providing easy access to a range of languages in compliance with [New York State's Language Access Law](https://ogs.ny.gov/new-york-state-language-access-law).  
+The language selector in the UNav header is designed to enhance the user experience for multilingual visitors by providing easy access to a range of languages in compliance with [New York State's Language Access Law](https://ogs.ny.gov/new-york-state-language-access-law).
 
-Languages currently available in the language selector include: English, Español, 中文, 繁體中文, Русский, ייִדיש, বাংলা, 한국어, Kreyòl Ayisyen, Italiano, العربية, Polski, Français, and اردو.
+Languages available by default in the language selector: English, Español, 中文, 繁體中文, יידיש, Русский, বাংলা, 한국어, Kreyòl Ayisyen, Italiano, العربية, Polski, Français, and اردو.
 
-## How It Works
-
-The language selector is designed to work with the state's Smartling Global Delivery Network (GDN), our current language partner. When a user selects a language, they are redirected to the corresponding language subdomain (e.g. selecting "Spanish" on `ny.gov` would redirect to `es.ny.gov`).
-
-> [!WARNING]  
-> Not all state websites are set up to work with Smartling. The UNav language selector will only work on sites that have been configured to use Smartling for translation services. If your site is not set up with Smartling, we recommend hiding the language selector.
-
-## Display Options
-
-The language selector can be displayed in the header, the footer, or both, depending on your site’s layout. However, our testing has shown that users find and use the language selector more easily when it’s placed in the header, so **we strongly recommend including the language selector in the header**.
-
-To configure the placement of the language selector, use the `showLanguageHeader` and `showLanguageFooter` options in the embed code. [More details in the implementation guide.](/notes/implementation.md)
-
-``` javascript
-var _NY = {
-  HOST: "...",
-  BASE_HOST: "...",
-  hideSearch: false,
-  showLanguageHeader: true,  // Show the language selector in the header
-  showLanguageFooter: false, // Hide the language selector in the footer
-};
-```
-
-**Language Selector in the Header**
+The language selector is in the header only. It's shown by default.
 
 <img src="language-selector-header.png" alt="Language Selector in Header" width="640">
 
-**Language Selector in the Footer**
+## How It Works
 
-<img src="language-selector-footer.png" alt="Language Selector in Footer" width="640">
+The header supports two translation services. Which one it uses depends on whether you set `translateKey`.
 
+### Smartling (default)
 
-## Hiding the Language Selector
+With no `translateKey`, each language in the menu is a link to the same page on that language's subdomain. Selecting Español on `agency.ny.gov/about` goes to `es.agency.ny.gov/about`. Selecting English removes the language subdomain. The path, query string, and hash are kept.
 
-If your site does not require a language selector, you can hide it by setting both `showLanguageHeader` and `showLanguageFooter` to `false` in the embed code. [More details in the implementation guide.](/notes/implementation.md)
-
-``` javascript
-var _NY = {
-  HOST: "...",
-  BASE_HOST: "...",
-  hideSearch: false,
-  showLanguageHeader: false, // Hide the language selector in the header
-  showLanguageFooter: false, // Hide the language selector in the footer
-};
+```html
+<nys-unavheader></nys-unavheader>
 ```
+
+> [!WARNING]
+> Not all state websites are set up to work with Smartling. The subdomain links only work on sites configured for the state's Smartling Global Delivery Network (GDN). If your site uses neither Smartling nor Localize, hide the language selector.
+
+### Localize
+
+Set `translateKey` to your Localize project key. The header loads LocalizeJS and translates the page in place, without a redirect.
+
+```html
+<nys-unavheader translateKey="YOUR_LOCALIZE_KEY"></nys-unavheader>
+```
+
+With Localize:
+
+- The visitor's language is remembered on later visits.
+- Arabic, Urdu, and Yiddish switch the page to right-to-left.
+- When a visitor picks a language other than English, the header shows a dismissible machine-translation disclaimer in that language, directly below the header.
+
+If you load Localize yourself, the header uses that instance instead of loading a second copy.
+
+## Changing the list of languages
+
+Set the `languages` property from JavaScript. Each language takes:
+
+Field | Description
+:--- | :---
+`code` | The language code, for example `es`. Also used as the Smartling subdomain and the Localize language code.
+`label` | The name shown in the menu, written in that language, for example `Español`.
+`nativeText` | The name in English, for example `Spanish`. Screen readers announce it after the label.
+`url` | Optional. A link for this language. Overrides both Smartling and Localize for this language.
+`disclaimer` | Optional. HTML shown as the machine-translation disclaimer when this language is picked with Localize.
+
+```html
+<nys-unavheader id="unav"></nys-unavheader>
+<script>
+  document.querySelector("#unav").languages = [
+    { code: "en", label: "English", nativeText: "English" },
+    { code: "es", label: "Español", nativeText: "Spanish", url: "https://example.ny.gov/es/" },
+    { code: "fr", label: "Français", nativeText: "French", url: "https://example.ny.gov/fr/" },
+  ];
+</script>
+```
+
+Setting `languages` replaces the whole default list. Include English so visitors can switch back.
+
+## Handling language selection in JavaScript
+
+To translate with another service, listen for `nys-language-select` and call `preventDefault()`. The selected language is in `event.detail.language`.
+
+```html
+<nys-unavheader id="unav"></nys-unavheader>
+<script>
+  document.querySelector("#unav").addEventListener("nys-language-select", (event) => {
+    event.preventDefault();
+    myTranslator.setLanguage(event.detail.language.code);
+  });
+</script>
+```
+
+## Hiding the language selector
+
+If your site doesn't offer translation, hide the selector with the `hideTranslate` attribute. [More details in the implementation guide.](/notes/implementation.md)
+
+```html
+<nys-unavheader hideTranslate></nys-unavheader>
+```
+
+> [!NOTE]
+> The script embed had separate `showLanguageHeader` and `showLanguageFooter` settings, both off by default. The component has no footer language selector, and it shows the header selector unless you add `hideTranslate`.
+
+## Testing locally
+
+Smartling links need a hostname to add a subdomain to. On `127.0.0.1`, the links point back at the current page and the header logs a warning. Test on `localhost` or another hostname instead.

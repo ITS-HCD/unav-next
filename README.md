@@ -18,9 +18,11 @@ The updated UNav features:
 
 ## Technical Details
 
-- [Implementation Guide](/notes/implementation.md) — Details on how to implement the UNav on your site, including code snippets and instructions.
-- [UNav Search](/notes/search.md) — Display options, domain-specific search, and implementation details.
-- [UNav Translate](/notes/translate.md) — Display options, placement details, and Smartling integration.
+The UNav is built from two [NYS Design System](https://designsystem.ny.gov) web components: `<nys-unavheader>` and `<nys-unavfooter>`.
+
+- [Implementation Guide](/notes/implementation.md) — Loading the components, header and footer settings, events, and migrating from the script embed.
+- [UNav Search](/notes/search.md) — Domain-scoped search, using your own search page, and hiding search.
+- [UNav Translate](/notes/translate.md) — Smartling and Localize, changing the list of languages, and hiding the language selector.
 - [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
 
 > [!CAUTION]  
