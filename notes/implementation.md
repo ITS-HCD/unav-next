@@ -5,12 +5,37 @@ The UNav is two web components from the [NYS Design System (NYSDS)](https://desi
 - `<nys-unavheader>` — the trust bar ("An official website of New York State"), the NY.gov logo, search, the language selector, and statewide alerts.
 - `<nys-unavfooter>` — the statewide footer and statewide calls-to-action (CTAs).
 
-Both ship in one self-contained script, `@nysds/nys-unavbundle`. That one file is all you load: there's no stylesheet to link, no icons to host, and no other NYSDS package to install.
+## Choose how to add the UNav
 
-> [!NOTE]
-> Coming from the 2024 script embed?<br> (ex: `<div id="nygov-universal-navigation">`)<br>See [Migrating from the script embed](#migrating-from-the-2024-script-embed).
+How you add the UNav depends on your platform:
+
+Your site | What to do
+:--- | :---
+Drupal on **Acquia Site Factory**, managed by WebNY | **Nothing.** WebNY manages the UNav setup for these sites.
+**New application** | Use `nys-unavheader` and `nys-unavfooter` from the NYSDS component library. See [Building a new application](#building-a-new-application).
+**Existing site** that uses the 2024 script embed (`<div id="nygov-universal-navigation">`) | Load the UNav bundle. See [Load the bundle](#load-the-bundle) and [Migrating from the 2024 script embed](#migrating-from-the-2024-script-embed).
+
+> [!IMPORTANT]
+> Does your site use Smartling for translation? Smartling translation and the language subdomains (for example, `es.its.ny.gov`) stop working on December 31, 2026, with no redirects. See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
+
+## Building a new application
+
+New applications should use `nys-unavheader` and `nys-unavfooter` directly from the [NYS Design System component library](https://designsystem.ny.gov). The library supports:
+
+Framework | Package
+:--- | :---
+Native HTML (web components) | `@nysds/components`
+React | `@nysds/react`
+Angular | `@nysds/angular`
+Vue | `@nysds/vue`
+
+Follow the design system's setup for your framework. The header and footer take the same settings and fire the same events described in this guide.
+
+Use the bundle below only on existing sites that don't use the NYSDS component library. A site that loads the component library already includes both elements, so don't add the bundle too.
 
 ## Load the bundle
+
+For existing sites, `@nysds/nys-unavbundle` ships both elements in one self-contained script. That one file is all you load: there's no stylesheet to link, no icons to host, and no other NYSDS package to install.
 
 Install the bundle from npm:
 
@@ -40,9 +65,6 @@ The bundle is a classic script, so don't add `type="module"`.
 
 Pin an exact version and update it deliberately. Check the [NYSDS releases](https://github.com/ITS-HCD/nysds/releases) for the latest version.
 
-> [!TIP]
-> If your site already loads the full design system (`@nysds/components`), it already includes `<nys-unavheader>` and `<nys-unavfooter>`. Don't add the bundle too.
-
 ## Header
 
 > [!IMPORTANT]
@@ -60,6 +82,8 @@ Search and the language selector are shown by default. Hide either one with a pr
 ```html
 <nys-unavheader hideSearch hideTranslate></nys-unavheader>
 ```
+
+If you keep the language selector, set your Localize key with `translateKey`. See [UNav Translate](/notes/translate.md).
 
 ## Footer
 
@@ -102,7 +126,7 @@ Attribute | Description | Default
 `hideSearch` | Hides search in the header. [More details.](/notes/search.md) | `false` (search shown)
 `hideTranslate` | Hides the language selector in the header. [More details.](/notes/translate.md) | `false` (translate shown)
 `searchUrl` | Sends searches to your own search page. The query is URL-encoded and appended to the end of this value, so include the query parameter (for example `https://example.ny.gov/search?q=`). [More details.](/notes/search.md) | `""` (statewide search, scoped to your domain)
-`translateKey` | A Localize project key. When set, the header loads LocalizeJS and translates the page in place. When empty, languages link to Smartling subdomains. [More details.](/notes/translate.md) | `""` (Smartling)
+`translateKey` | A Localize project key. When set, the header loads Localize and translates the page in place. When empty, languages link to Smartling subdomains, which stop working on December 31, 2026. Request a key from [translation@its.ny.gov](mailto:translation@its.ny.gov). [More details.](/notes/translate.md) | `""` (Smartling links)
 `landmarkLabel` | Accessible name of the header's `banner` landmark. | `"New York State"`
 
 Property (JavaScript only) | Description | Default
@@ -213,10 +237,12 @@ Script embed | Component | Notes
 `showLanguageFooter` | Removed | The language selector is only in the header. The footer no longer has one.
 `data-iframe`, `data-updated` | Removed |
 — | `searchUrl` | New. Use your own search results page.
-— | `translateKey` | New. Translate with Localize instead of Smartling subdomains.
+— | `translateKey` | New. Translate with Localize. Smartling subdomains stop working on December 31, 2026, so set this or add `hideTranslate`.
 — | `languages` | New. Change the list of languages.
 — | `landmarkLabel` | New. Rename the header's or footer's landmark.
 — | `nys-search-submit`, `nys-language-select` | New. Replace search or translation with your own handling.
 
 > [!WARNING]
 > Because the defaults changed, a straight swap can turn on features your site had off. If your embed had `hideSearch: true` (the default), add `hideSearch`. If it had `showLanguageHeader: false` (the default), add `hideTranslate`.
+>
+> If your embed showed the language selector, set a `translateKey`. Without one, the selector links to Smartling subdomains, which stop working on December 31, 2026.

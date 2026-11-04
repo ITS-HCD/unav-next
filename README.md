@@ -13,6 +13,15 @@ The UNav features:
 
 ## Getting Started
 
+What you need to do depends on your site:
+
+- **Drupal sites on Acquia Site Factory, managed by WebNY:** Nothing. WebNY manages the UNav setup for these sites.
+- **New applications:** Use `nys-unavheader` and `nys-unavfooter` from the [NYS Design System](https://designsystem.ny.gov) component library `npm install @nysds/components @nysds/styles`. It supports native HTML, React, Angular, and Vue. See [Building a new application](/notes/implementation.md#building-a-new-application).
+- **Existing sites using the 2024 script embed:** Switch to the UNav bundle. See the [Implementation Guide](/notes/implementation.md).
+
+> [!IMPORTANT]
+> **Using Smartling for translation?** Smartling translation services and the Smartling language subdomains (for example, `es.its.ny.gov`) stop working on **December 31, 2026**. No redirects are set up. To link to a translation, use your main domain with `?ljs=` and the language code, for example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
+
 - [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
 
 ## Technical Details
@@ -21,7 +30,7 @@ The UNav is built from two [NYS Design System](https://designsystem.ny.gov) web 
 
 - [Implementation Guide](/notes/implementation.md) — Loading the components, header and footer settings, events, and migrating from the script embed.
 - [UNav Search](/notes/search.md) — Domain-scoped search, using your own search page, and hiding search.
-- [UNav Translate](/notes/translate.md) — TaaS vendor switching, changing the list of languages, and hiding the language selector.
+- [UNav Translate](/notes/translate.md) — How the language selector works, Localize, moving off Smartling, app-specific translation, and hiding the language selector.
 - [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
 
 > [!CAUTION]  
