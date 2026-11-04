@@ -1,16 +1,15 @@
 # NY State Universal Navigation (UNav)
 
-The updated version of the New York State Universal Navigation (UNav) is **set to launch on the evening of October 1, 2024**, bringing significant improvements to the digital experience across all public-facing NYS websites. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
+The New York State Universal Navigation (UNav) is meant to improve the digital experience across all public-facing NYS websites. It unifies common user needs like translation and search. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
 
 <img width="468" alt="Updated UNav" src="./notes/updated-unav.png"> 
 
-The updated UNav features:
+The UNav features:
 
--	A new banner explaining how to identify an official NY.gov site and how to know that a site is secure, helping visitors understand the site is an official New York State government site;
--	The service links have been removed from the top to simplify the interface and help visitors stay on task;
--	The translation menu/language switcher was integrated into the banner to take up less vertical space on the page;
--	Search was incorporated more naturally into the design of the UNav;
--	Mobile-responsiveness has been improved: translation and search features expand to fill larger screens, but collapse on smaller screens to save space.
+- A NYS-branded banner
+- A trust bar - explaining how to identify an official NY.gov site and how to know that a site is secure
+- A translation language switcher configured for multiple Translation as a Service providers
+- A search field and button
 
 ## Getting Started
 
@@ -22,7 +21,7 @@ The UNav is built from two [NYS Design System](https://designsystem.ny.gov) web 
 
 - [Implementation Guide](/notes/implementation.md) — Loading the components, header and footer settings, events, and migrating from the script embed.
 - [UNav Search](/notes/search.md) — Domain-scoped search, using your own search page, and hiding search.
-- [UNav Translate](/notes/translate.md) — Smartling and Localize, changing the list of languages, and hiding the language selector.
+- [UNav Translate](/notes/translate.md) — TaaS vendor switching, changing the list of languages, and hiding the language selector.
 - [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
 
 > [!CAUTION]  

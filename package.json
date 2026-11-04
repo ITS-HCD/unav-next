@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "@nysds/nys-unavbundle": "^1.23.1"
+  }
+}

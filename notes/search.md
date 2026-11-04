@@ -38,8 +38,6 @@ To run search without a page redirect (for example, in a single-page application
 </script>
 ```
 
-Empty searches don't fire the event.
-
 ## Hiding search
 
 Some websites or applications need search to live somewhere else on the page. In these cases, hide search in the UNav with the `hideSearch` attribute. [More details in the implementation guide.](/notes/implementation.md)

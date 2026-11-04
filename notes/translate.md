@@ -12,7 +12,19 @@ The language selector is in the header only. It's shown by default.
 
 The header supports two translation services. Which one it uses depends on whether you set `translateKey`.
 
-### Smartling (default)
+### Localize
+
+Set `translateKey` to your Localize project key. The header loads LocalizeJS and translates the page in place, without a redirect.
+
+```html
+<nys-unavheader translateKey="{{YOUR_LOCALIZE_KEY}}"></nys-unavheader>
+```
+
+- The visitor's language is remembered on later visits.
+- Arabic, Urdu, and Yiddish switch the page to right-to-left.
+- When a visitor picks a language other than English, the header shows a dismissible machine-translation disclaimer in that language, directly below the header.
+
+### Smartling (fallback)
 
 With no `translateKey`, each language in the menu is a link to the same page on that language's subdomain. Selecting Español on `agency.ny.gov/about` goes to `es.agency.ny.gov/about`. Selecting English removes the language subdomain. The path, query string, and hash are kept.
 
@@ -23,21 +35,19 @@ With no `translateKey`, each language in the menu is a link to the same page on 
 > [!WARNING]
 > Not all state websites are set up to work with Smartling. The subdomain links only work on sites configured for the state's Smartling Global Delivery Network (GDN). If your site uses neither Smartling nor Localize, hide the language selector.
 
-### Localize
+## Handling language selection in JavaScript
 
-Set `translateKey` to your Localize project key. The header loads LocalizeJS and translates the page in place, without a redirect.
+To translate with another service, listen for `nys-language-select` and call `preventDefault()`. The selected language is in `event.detail.language`.
 
 ```html
-<nys-unavheader translateKey="YOUR_LOCALIZE_KEY"></nys-unavheader>
+<nys-unavheader id="unav"></nys-unavheader>
+<script>
+  document.querySelector("#unav").addEventListener("nys-language-select", (event) => {
+    event.preventDefault();
+    myTranslator.setLanguage(event.detail.language.code);
+  });
+</script>
 ```
-
-With Localize:
-
-- The visitor's language is remembered on later visits.
-- Arabic, Urdu, and Yiddish switch the page to right-to-left.
-- When a visitor picks a language other than English, the header shows a dismissible machine-translation disclaimer in that language, directly below the header.
-
-If you load Localize yourself, the header uses that instance instead of loading a second copy.
 
 ## Changing the list of languages
 
@@ -64,20 +74,6 @@ Field | Description
 
 Setting `languages` replaces the whole default list. Include English so visitors can switch back.
 
-## Handling language selection in JavaScript
-
-To translate with another service, listen for `nys-language-select` and call `preventDefault()`. The selected language is in `event.detail.language`.
-
-```html
-<nys-unavheader id="unav"></nys-unavheader>
-<script>
-  document.querySelector("#unav").addEventListener("nys-language-select", (event) => {
-    event.preventDefault();
-    myTranslator.setLanguage(event.detail.language.code);
-  });
-</script>
-```
-
 ## Hiding the language selector
 
 If your site doesn't offer translation, hide the selector with the `hideTranslate` attribute. [More details in the implementation guide.](/notes/implementation.md)
@@ -85,9 +81,6 @@ If your site doesn't offer translation, hide the selector with the `hideTranslat
 ```html
 <nys-unavheader hideTranslate></nys-unavheader>
 ```
-
-> [!NOTE]
-> The script embed had separate `showLanguageHeader` and `showLanguageFooter` settings, both off by default. The component has no footer language selector, and it shows the header selector unless you add `hideTranslate`.
 
 ## Testing locally
 

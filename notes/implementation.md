@@ -1,7 +1,5 @@
 # UNav Implementation Guide
 
-The New York State Universal Navigation (UNav) is a standardized header and footer that appears on all public-facing New York State websites. The UNav is designed to provide a consistent user experience across all state websites, making it easier for visitors to navigate and understand the information they find.
-
 The UNav is two web components from the [NYS Design System (NYSDS)](https://designsystem.ny.gov):
 
 - `<nys-unavheader>` — the trust bar ("An official website of New York State"), the NY.gov logo, search, the language selector, and statewide alerts.
@@ -9,10 +7,8 @@ The UNav is two web components from the [NYS Design System (NYSDS)](https://desi
 
 Both ship in one self-contained script, `@nysds/nys-unavbundle`. That one file is all you load: there's no stylesheet to link, no icons to host, and no other NYSDS package to install.
 
-The two components are independent. The footer no longer depends on the header to render, and neither one is configured through a global `_NY` object.
-
 > [!NOTE]
-> Coming from the script embed (`<div id="nygov-universal-navigation">` and `var _NY = {...}`)? See [Migrating from the script embed](#migrating-from-the-script-embed).
+> Coming from the 2024 script embed?<br> (ex: `<div id="nygov-universal-navigation">`)<br>See [Migrating from the script embed](#migrating-from-the-2024-script-embed).
 
 ## Load the bundle
 
@@ -47,12 +43,6 @@ Pin an exact version and update it deliberately. Check the [NYSDS releases](http
 > [!TIP]
 > If your site already loads the full design system (`@nysds/components`), it already includes `<nys-unavheader>` and `<nys-unavfooter>`. Don't add the bundle too.
 
-### Design tokens
-
-The components read NYSDS design tokens (`--nys-*` CSS custom properties). The bundle adds them to the page for you, as the first `<style>` in `<head>`. Because they come first, any `--nys-*` values your own stylesheets set take priority.
-
-To stop the bundle from adding tokens, set `window.NYS_UNAV_SKIP_TOKENS = true` before the bundle loads. Only do this if your page already defines the tokens, for example by loading `@nysds/styles`.
-
 ## Header
 
 > [!IMPORTANT]
@@ -65,13 +55,11 @@ To stop the bundle from adding tokens, set `window.NYS_UNAV_SKIP_TOKENS = true` 
 </body>
 ```
 
-Search and the language selector are shown by default. Hide either one with a boolean attribute:
+Search and the language selector are shown by default. Hide either one with a property:
 
 ```html
 <nys-unavheader hideSearch hideTranslate></nys-unavheader>
 ```
-
-Leave room for the header to grow. A statewide alert can appear at any time and adds height to the header, so content below it must be able to shift down. See [Alerts and CTA](/notes/alerts.md).
 
 ## Footer
 
@@ -85,8 +73,6 @@ Leave room for the header to grow. A statewide alert can appear at any time and 
 </body>
 ```
 
-The footer has no display options. It renders the statewide footer and any published statewide CTA.
-
 ## Full page example
 
 ```html
@@ -98,9 +84,9 @@ The footer has no display options. It renders the statewide footer and any publi
     <script src="/assets/js/nys-unavbundle.js"></script>
   </head>
   <body>
-    <nys-unavheader></nys-unavheader>
+    <nys-unavheader translateKey="{{MY_KEY}}"></nys-unavheader>
 
-    <!-- Your agency header (for example, nys-globalheader) and page content -->
+    <!-- Site layout and content -->
 
     <nys-unavfooter></nys-unavfooter>
   </body>
@@ -113,8 +99,8 @@ Set these as attributes in HTML, or as properties from JavaScript.
 
 Attribute | Description | Default
 :--- | :--- | :---
-`hideSearch` | Hides search in the header. [More details.](/notes/search.md) | Not set (search shown)
-`hideTranslate` | Hides the language selector in the header. [More details.](/notes/translate.md) | Not set (selector shown)
+`hideSearch` | Hides search in the header. [More details.](/notes/search.md) | `false` (search shown)
+`hideTranslate` | Hides the language selector in the header. [More details.](/notes/translate.md) | `false` (translate shown)
 `searchUrl` | Sends searches to your own search page. The query is URL-encoded and appended to the end of this value, so include the query parameter (for example `https://example.ny.gov/search?q=`). [More details.](/notes/search.md) | `""` (statewide search, scoped to your domain)
 `translateKey` | A Localize project key. When set, the header loads LocalizeJS and translates the page in place. When empty, languages link to Smartling subdomains. [More details.](/notes/translate.md) | `""` (Smartling)
 `landmarkLabel` | Accessible name of the header's `banner` landmark. | `"New York State"`
@@ -148,15 +134,9 @@ Event | Fired when | `event.detail` | Default behavior
 </script>
 ```
 
-## Using the UNav with an agency header and footer
-
-Most sites place their own agency header (`nys-globalheader`) directly below the UNav header, and their own agency footer (`nys-globalfooter`) directly above the UNav footer. That gives the page two `banner` landmarks and two `contentinfo` landmarks. The UNav names its landmarks "New York State", and the agency components are named after the agency, so screen reader users can tell them apart.
-
-If you change `landmarkLabel`, keep it different from your agency header's and footer's names.
-
 ## Layout width
 
-The UNav content is centered within the NYSDS content width. To match a different site width, set the `--nys-max-width--content` custom property, for example on `:root`. It applies to the header, the footer, and other NYSDS layout components.
+The UNav content is centered within a NYSDS container width. To match a different site width, set the `--nys-max-width--content` custom property, for example on `:root`. It applies to the header, the footer, and other NYSDS layout components.
 
 ```css
 :root {
@@ -170,7 +150,7 @@ If your site sends a Content Security Policy, allow the following:
 
 Directive | Source | Needed for
 :--- | :--- | :---
-`style-src` | `'unsafe-inline'` | The design tokens the bundle adds as a `<style>` element. Not needed if you set `NYS_UNAV_SKIP_TOKENS` and load the tokens yourself.
+`style-src` | `'unsafe-inline'` | The design tokens the bundle adds as a `<style>` element.
 `connect-src` | `https://alerts-cta.static-assets.ny.gov` | Statewide alerts and CTAs. Also allow `alerts-cta-dev` and `alerts-cta-stage` on non-production environments.
 `script-src`, `connect-src` | `https://global.localizecdn.com` and Localize's API hosts | Only when `translateKey` is set.
 
@@ -184,27 +164,21 @@ The header and footer read the production alert and CTA feeds by default. To pre
 <body data-environment="stage">
 ```
 
-Only `dev` and `stage` change the feed. Any other value, or no attribute, reads production. Don't ship `data-environment` to production.
+Only `dev` and `stage` change the feed. Any other value, or no attribute, reads production. **Don't ship `data-environment` to production!**
 
-## Migrating from the script embed
+## Migrating from the 2024 script embed
 
 The script embed used a `<div>` placeholder, a global `_NY` configuration object, and a bundle loaded from `static-assets.ny.gov`. Replace all of it with the new bundle and the two components.
 
-**Before**
+### Before
 
 ```html
 <!-- NYS UNAV HEADER -->
 <div id="nygov-universal-navigation" class="nygov-universal-container" data-iframe="true" data-updated="2024-08-26 12:00">
   <script type="text/javascript">
     var _NY = {
-      HOST: "static-assets.ny.gov",
-      BASE_HOST: "www.ny.gov",
-      hideSettings: true,
-      hideSearch: true,
-      showLanguageHeader: false,
-      showLanguageFooter: false,
+      ...
     };
-    (function (document, bundle, head) { /* loads global-nav-bundle.js */ }(document));
   </script>
 </div>
 
@@ -212,7 +186,7 @@ The script embed used a `<div>` placeholder, a global `_NY` configuration object
 <div id="nygov-universal-footer" class="nygov-universal-container"></div>
 ```
 
-**After**
+### After
 
 ```html
 <!-- In <head> -->
