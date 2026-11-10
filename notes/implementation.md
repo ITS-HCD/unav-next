@@ -1,6 +1,6 @@
 # UNav Implementation Guide
 
-The UNav is two web components from the [NYS Design System (NYSDS)](https://designsystem.ny.gov):
+The UNav is made up of two web components from the [NYS Design System (NYSDS)](https://designsystem.ny.gov):
 
 - `<nys-unavheader>` — the trust bar ("An official website of New York State"), the NY.gov logo, search, the language selector, and statewide alerts.
 - `<nys-unavfooter>` — the statewide footer and statewide calls-to-action (CTAs).

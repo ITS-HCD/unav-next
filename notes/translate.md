@@ -7,7 +7,7 @@ The language selector is in the header only. It's shown by default.
 <img src="language-selector-header.png" alt="Language Selector in Header" width="640">
 
 > [!CAUTION]
-> **Smartling translation is ending.** Smartling translation services and the Smartling language subdomains (for example, `es.its.ny.gov`) stop working on **December 31, 2026**. No redirects are set up. To link to a translation, use your main domain with `?ljs=` and the language code, for example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](#moving-off-smartling).
+> **Smartling translation is ending.** Smartling translation services and the Smartling language subdomains (for example, `es.its.ny.gov`) will stop working on **December 31, 2026**. No redirects are set up. To link to a translation, use your main domain with `?ljs=` and the language code, for example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](#moving-off-smartling).
 
 ## How the language selector works
 
@@ -72,53 +72,18 @@ Smartling translation services, and the Smartling language subdomains, stop work
 
 Today, Smartling serves each translation from its own subdomain. For example, `es.its.ny.gov` serves the Spanish translation of `its.ny.gov`. After December 31, 2026:
 
-- The language subdomains go away. `es.its.ny.gov` will no longer serve the Spanish translation of the ITS site.
+- The language subdomains will go away. `es.its.ny.gov` will no longer serve the Spanish translation of the ITS site.
 - **No redirects are set up.** Links and bookmarks pointing at a language subdomain will break.
 - A header with no `translateKey` still links to Smartling subdomains, so its language selector breaks too. (use `hideTranslate` in this case).
 
 To prepare:
 
-1. [Request a Localize key](#getting-a-localize-key) and set it as your header's `translateKey`. If your site won't offer translation, add `hideTranslate` instead.
+1. [Request a Localize key](#getting-a-localize-key) and set it as your header's `translateKey`. If your site doesn't offer translation, use the hideTranslate property to remove the language selector instead.
 2. Find links to your language subdomains, in your own site, in other sites you control, and in printed or emailed materials. Change them to your main domain with `?ljs=` and the language code. For example, change `https://es.its.ny.gov/` to `https://its.ny.gov/?ljs=es`. See [Linking to a translated page](#linking-to-a-translated-page).
 
 ## Using your app's own translation
 
-If your app has its own internationalization (i18n), you can keep the UNav language selector and point it at your translations.
-
-**Handle the selection in JavaScript.** Listen for `nys-language-select` and call `preventDefault()`. The header then does nothing else. The selected language is in `event.detail.language`.
-
-```html
-<nys-unavheader id="unav"></nys-unavheader>
-<script>
-  document.querySelector("#unav").addEventListener("nys-language-select", (event) => {
-    event.preventDefault();
-    myApp.setLocale(event.detail.language.code);
-  });
-</script>
-```
-
-**Change the list of languages.** Set the `languages` property to only the languages your app supports. Each language takes:
-
-Field | Description
-:--- | :---
-`code` | The language code, for example `es`. Also passed to Localize, and used as the Smartling subdomain.
-`label` | The name shown in the menu, written in that language, for example `Español`.
-`nativeText` | The name in English, for example `Spanish`. Screen readers announce it after the label.
-`url` | Optional. A link for this language. Overrides Localize and Smartling for this language.
-`disclaimer` | Optional. HTML shown as the machine-translation disclaimer when this language is picked with Localize.
-
-```html
-<nys-unavheader id="unav"></nys-unavheader>
-<script>
-  document.querySelector("#unav").languages = [
-    { code: "en", label: "English", nativeText: "English" },
-    { code: "es", label: "Español", nativeText: "Spanish", url: "https://example.ny.gov/es/" },
-    { code: "fr", label: "Français", nativeText: "French", url: "https://example.ny.gov/fr/" },
-  ];
-</script>
-```
-
-Setting `languages` replaces the whole default list. Include English so visitors can switch back.
+If your app has its own internationalization (i18n), you can set [custom language endpoints](https://designsystem.ny.gov/components/unavheader/#custom-language-endpoints) and [listen for the search event to fire.](https://designsystem.ny.gov/components/unavheader/#event-details)
 
 ## Hiding the language selector
 

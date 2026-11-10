@@ -8,6 +8,7 @@ UNav features:
 - A trust bar - explaining how to identify an official NY.gov site and how to know that a site is secure
 - A translation language switcher configured for multiple Translation as a Service providers
 - A search field
+- An embedded alert system for State-wide alerts and calls to action
 
 ## Getting Started
 
@@ -18,7 +19,7 @@ What you need to do depends on your site:
 - **Existing sites using the 2024 script embed:** Switch to the UNav bundle. See the [Implementation Guide](/notes/implementation.md).
 
 > [!IMPORTANT]
-> **Currently use translation?** The current translation services and the translated language subdomains (for example, `es.its.ny.gov`) stop working on **December 31, 2026**. No redirects are set up. To link to a translation, add `?ljs=` to your URL with the language code. For example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
+> **Currently use translation?** The current translation services and the translated language subdomains (for example, `es.its.ny.gov`) will stop working on **December 31, 2026**. No redirects are set up. To link to a translation, add `?ljs=` to your URL with the language code. For example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
 
 - [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
 
