@@ -33,11 +33,6 @@ What you need to do depends on your site:
 > [!CAUTION]  
 > The UNav should only be used on official NYS websites or applications that are hosted a ny.gov domain and secured with HTTPS encryption. If you have questions about whether your site is eligible to use the UNav, please contact the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
 
-
-## UNav Demo
-  
-- [Staging Demo](https://stage.static-assets.ny.gov/unav/tests/cf/stage) — Live demo of the updated UNav, including search, translate, and alerts.
-
 ## Questions
 
 Questions and exception requests can be submitted to the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
