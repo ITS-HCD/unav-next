@@ -1,35 +1,37 @@
 # NY State Universal Navigation (UNav)
 
-The updated version of the New York State Universal Navigation (UNav) is **set to launch on the evening of October 1, 2024**, bringing significant improvements to the digital experience across all public-facing NYS websites. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
-
 <img width="468" alt="Updated UNav" src="./notes/updated-unav.png"> 
 
-The updated UNav features:
+UNav features:
 
--	A new banner explaining how to identify an official NY.gov site and how to know that a site is secure, helping visitors understand the site is an official New York State government site;
--	The service links have been removed from the top to simplify the interface and help visitors stay on task;
--	The translation menu/language switcher was integrated into the banner to take up less vertical space on the page;
--	Search was incorporated more naturally into the design of the UNav;
--	Mobile-responsiveness has been improved: translation and search features expand to fill larger screens, but collapse on smaller screens to save space.
+- A NYS-branded banner
+- A trust bar - explaining how to identify an official NY.gov site and how to know that a site is secure
+- A translation language switcher configured for multiple Translation as a Service providers
+- A search field
+- An embedded alert system for State-wide alerts and calls to action
 
 ## Getting Started
+
+What you need to do depends on your site:
+
+- **Drupal sites on Acquia Site Factory, managed by WebNY:** Nothing. WebNY manages the UNav setup for these sites.
+- **New applications:** Use `nys-unavheader` and `nys-unavfooter` from the [NYS Design System](https://designsystem.ny.gov) component library `npm install @nysds/components @nysds/styles`. It supports native HTML, React, Angular, and Vue. See [Building a new application](/notes/implementation.md#building-a-new-application).
+- **Existing sites using the 2024 script embed:** Switch to the UNav bundle. See the [Implementation Guide](/notes/implementation.md).
+
+> [!IMPORTANT]
+> **Currently use translation?** The current translation services and the translated language subdomains (for example, `es.its.ny.gov`) will stop working on **December 31, 2026**. No redirects are set up. To link to a translation, add `?ljs=` to your URL with the language code. For example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
 
 - [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
 
 ## Technical Details
 
-- [Implementation Guide](/notes/implementation.md) — Details on how to implement the UNav on your site, including code snippets and instructions.
-- [UNav Search](/notes/search.md) — Display options, domain-specific search, and implementation details.
-- [UNav Translate](/notes/translate.md) — Display options, placement details, and Smartling integration.
+- [Implementation Guide](/notes/implementation.md) — Loading the components, header and footer settings, events, and migrating from the script embed.
+- [UNav Search](/notes/search.md) — Domain-scoped search, using your own search page, and hiding search.
+- [UNav Translate](/notes/translate.md) — How the language selector works, Localize, moving off Smartling, and hiding the language selector.
 - [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
 
 > [!CAUTION]  
 > The UNav should only be used on official NYS websites or applications that are hosted a ny.gov domain and secured with HTTPS encryption. If you have questions about whether your site is eligible to use the UNav, please contact the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
-
-
-## UNav Demo
-  
-- [Staging Demo](https://stage.static-assets.ny.gov/unav/tests/cf/stage) — Live demo of the updated UNav, including search, translate, and alerts.
 
 ## Questions
 
