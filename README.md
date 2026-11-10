@@ -1,15 +1,13 @@
 # NY State Universal Navigation (UNav)
 
-The New York State Universal Navigation (UNav) is meant to improve the digital experience across all public-facing NYS websites. It unifies common user needs like translation and search. This update aligns with federal standards for accessibility and security, ensuring a more consistent and trustworthy user experience.
-
 <img width="468" alt="Updated UNav" src="./notes/updated-unav.png"> 
 
-The UNav features:
+UNav features:
 
 - A NYS-branded banner
 - A trust bar - explaining how to identify an official NY.gov site and how to know that a site is secure
 - A translation language switcher configured for multiple Translation as a Service providers
-- A search field and button
+- A search field
 
 ## Getting Started
 
@@ -20,17 +18,15 @@ What you need to do depends on your site:
 - **Existing sites using the 2024 script embed:** Switch to the UNav bundle. See the [Implementation Guide](/notes/implementation.md).
 
 > [!IMPORTANT]
-> **Using Smartling for translation?** Smartling translation services and the Smartling language subdomains (for example, `es.its.ny.gov`) stop working on **December 31, 2026**. No redirects are set up. To link to a translation, use your main domain with `?ljs=` and the language code, for example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
+> **Currently use translation?** The current translation services and the translated language subdomains (for example, `es.its.ny.gov`) stop working on **December 31, 2026**. No redirects are set up. To link to a translation, add `?ljs=` to your URL with the language code. For example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
 
 - [Frequently Asked Questions](https://bit.ly/unav-intake) — Answers to common questions about the updated UNav, from timing to policy clarifications.
 
 ## Technical Details
 
-The UNav is built from two [NYS Design System](https://designsystem.ny.gov) web components: `<nys-unavheader>` and `<nys-unavfooter>`.
-
 - [Implementation Guide](/notes/implementation.md) — Loading the components, header and footer settings, events, and migrating from the script embed.
 - [UNav Search](/notes/search.md) — Domain-scoped search, using your own search page, and hiding search.
-- [UNav Translate](/notes/translate.md) — How the language selector works, Localize, moving off Smartling, app-specific translation, and hiding the language selector.
+- [UNav Translate](/notes/translate.md) — How the language selector works, Localize, moving off Smartling, and hiding the language selector.
 - [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
 
 > [!CAUTION]  

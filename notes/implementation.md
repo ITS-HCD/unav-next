@@ -15,9 +15,6 @@ Drupal on **Acquia Site Factory**, managed by WebNY | **Nothing.** WebNY manages
 **New application** | Use `nys-unavheader` and `nys-unavfooter` from the NYSDS component library. See [Building a new application](#building-a-new-application).
 **Existing site** that uses the 2024 script embed (`<div id="nygov-universal-navigation">`) | Load the UNav bundle. See [Load the bundle](#load-the-bundle) and [Migrating from the 2024 script embed](#migrating-from-the-2024-script-embed).
 
-> [!IMPORTANT]
-> Does your site use Smartling for translation? Smartling translation and the language subdomains (for example, `es.its.ny.gov`) stop working on December 31, 2026, with no redirects. See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
-
 ## Building a new application
 
 New applications should use `nys-unavheader` and `nys-unavfooter` directly from the [NYS Design System component library](https://designsystem.ny.gov). The library supports:
@@ -29,7 +26,7 @@ React | `@nysds/react`
 Angular | `@nysds/angular`
 Vue | `@nysds/vue`
 
-Follow the design system's setup for your framework. The header and footer take the same settings and fire the same events described in this guide.
+Follow the [design system's setup for your framework](https://designsystem.ny.gov/get-started/developers/). The header and footer take the same settings and fire the same events described in this guide.
 
 Use the bundle below only on existing sites that don't use the NYSDS component library. A site that loads the component library already includes both elements, so don't add the bundle too.
 
@@ -125,8 +122,8 @@ Attribute | Description | Default
 :--- | :--- | :---
 `hideSearch` | Hides search in the header. [More details.](/notes/search.md) | `false` (search shown)
 `hideTranslate` | Hides the language selector in the header. [More details.](/notes/translate.md) | `false` (translate shown)
-`searchUrl` | Sends searches to your own search page. The query is URL-encoded and appended to the end of this value, so include the query parameter (for example `https://example.ny.gov/search?q=`). [More details.](/notes/search.md) | `""` (statewide search, scoped to your domain)
-`translateKey` | A Localize project key. When set, the header loads Localize and translates the page in place. When empty, languages link to Smartling subdomains, which stop working on December 31, 2026. Request a key from [translation@its.ny.gov](mailto:translation@its.ny.gov). [More details.](/notes/translate.md) | `""` (Smartling links)
+`searchUrl` | Configurable search endpoint. The query is URL-encoded and appended to the end of this value, so include the query parameter (for example `https://example.ny.gov/search?q=`). [More details.](/notes/search.md) | `""` (statewide search, scoped to your domain)
+`translateKey` | A Localize project key. When empty, languages link to Smartling subdomains, which stop working on December 31, 2026. Request a key from [translation@its.ny.gov](mailto:translation@its.ny.gov). [More details.](/notes/translate.md) | `""` (Smartling links)
 `landmarkLabel` | Accessible name of the header's `banner` landmark. | `"New York State"`
 
 Property (JavaScript only) | Description | Default
@@ -182,17 +179,11 @@ If the alert and CTA feeds are blocked, the header and footer still render. Visi
 
 ## Testing on dev and stage
 
-The header and footer read the production alert and CTA feeds by default. To preview the dev or stage feeds, set `data-environment` on `<body>`:
-
-```html
-<body data-environment="stage">
-```
-
-Only `dev` and `stage` change the feed. Any other value, or no attribute, reads production. **Don't ship `data-environment` to production!**
+See [Alerts](/notes/alerts.md)
 
 ## Migrating from the 2024 script embed
 
-The script embed used a `<div>` placeholder, a global `_NY` configuration object, and a bundle loaded from `static-assets.ny.gov`. Replace all of it with the new bundle and the two components.
+Replace all of the previous script with the new bundle and the two components.
 
 ### Before
 
@@ -223,24 +214,6 @@ The script embed used a `<div>` placeholder, a global `_NY` configuration object
 
 <nys-unavfooter></nys-unavfooter>
 ```
-
-### Setting changes
-
-Script embed | Component | Notes
-:--- | :--- | :---
-`HOST` | Removed | Install `@nysds/nys-unavbundle` from npm instead.
-`BASE_HOST` | Removed | Already deprecated.
-`hideSettings` | Removed | Already deprecated.
-`hideSearch: true` | `hideSearch` | **The default changed.** The script embed hid search unless you set `hideSearch: false`. The component shows search unless you add `hideSearch`.
-`showLanguageHeader: true` | Default | **The setting is inverted.** The component shows the language selector unless you add `hideTranslate`.
-`showLanguageHeader: false` | `hideTranslate` |
-`showLanguageFooter` | Removed | The language selector is only in the header. The footer no longer has one.
-`data-iframe`, `data-updated` | Removed |
-— | `searchUrl` | New. Use your own search results page.
-— | `translateKey` | New. Translate with Localize. Smartling subdomains stop working on December 31, 2026, so set this or add `hideTranslate`.
-— | `languages` | New. Change the list of languages.
-— | `landmarkLabel` | New. Rename the header's or footer's landmark.
-— | `nys-search-submit`, `nys-language-select` | New. Replace search or translation with your own handling.
 
 > [!WARNING]
 > Because the defaults changed, a straight swap can turn on features your site had off. If your embed had `hideSearch: true` (the default), add `hideSearch`. If it had `showLanguageHeader: false` (the default), add `hideTranslate`.

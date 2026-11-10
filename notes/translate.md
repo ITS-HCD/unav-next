@@ -1,7 +1,5 @@
 # UNav Language Selector
 
-The language selector in the UNav header is designed to enhance the user experience for multilingual visitors by providing easy access to a range of languages in compliance with [New York State's Language Access Law](https://ogs.ny.gov/new-york-state-language-access-law).
-
 Languages available by default in the language selector: English, Español, 中文, 繁體中文, יידיש, Русский, বাংলা, 한국어, Kreyòl Ayisyen, Italiano, العربية, Polski, Français, and اردو.
 
 The language selector is in the header only. It's shown by default.
@@ -17,7 +15,7 @@ What the selector does depends on how you set up the header:
 
 Your setup | What visitors get
 :--- | :---
-`translateKey` set | **Localize (required for translation).** The header loads Localize and translates the page in place. See [Localize](#localize).
+`translateKey` set | **Localize** The header loads Localize and translates the page in place. See [Localize](#localize).
 No `translateKey` | **Smartling subdomain links.** Each language links to the same page on a language subdomain, for example `es.agency.ny.gov`. These links stop working on December 31, 2026. See [Moving off Smartling](#moving-off-smartling).
 `hideTranslate` | **No language selector.** Use this if your site doesn't offer translation. See [Hiding the language selector](#hiding-the-language-selector).
 `nys-language-select` handled in JavaScript | **Your own translation.** For apps with their own i18n. See [Using your app's own translation](#using-your-apps-own-translation).
@@ -31,7 +29,7 @@ Localize is the state's translation service for the UNav. To use it, set `transl
 
 - The visitor's language is remembered on later visits.
 - Arabic, Urdu, and Yiddish switch the page to right-to-left.
-- When a visitor picks a language other than English, the header shows a dismissible machine-translation disclaimer in that language, directly below the header.
+- When a visitor picks a language other than English, the header shows a dismissible human-translated translation disclaimer in that language, directly below the header.
 
 ```html
 <nys-unavheader translateKey="{{YOUR_LOCALIZE_KEY}}"></nys-unavheader>

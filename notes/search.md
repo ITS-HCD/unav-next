@@ -1,7 +1,5 @@
 # UNav Search
 
-The search that is built into the UNav header is designed to provide a consistent search experience across all New York State websites.
-
 <img src="search.png" alt="UNav Search Functionality" width="640">
 
 Search is shown by default. On wide screens it's an inline search field. On narrow screens it collapses to a search button that opens the field below the header.
@@ -10,13 +8,9 @@ Search is shown by default. On wide screens it's an inline search field. On narr
 
 When a visitor submits a search, the header sends them to the statewide search service at `search.its.ny.gov`, scoped to the domain they searched from. In other words, if a visitor searches while on a page on the `its.ny.gov` domain, the results come from `its.ny.gov`.
 
-Users can also expand that search to include results from all NY state sites:
-
-<img src="expand-search.png" alt="Expand to search across all NY State websites" width="320">
-
 ## Using your own search page
 
-To send searches to your site's own search results page, set `searchUrl`. The header URL-encodes the query and appends it to the end of this value, so include the query parameter.
+To send searches to your site's own search results page, set `searchUrl`. Be sure to include the query parameter!
 
 ```html
 <nys-unavheader searchUrl="https://example.ny.gov/search?q="></nys-unavheader>
