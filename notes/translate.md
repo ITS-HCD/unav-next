@@ -92,3 +92,44 @@ If your site doesn't offer translation, hide the selector with the `hideTranslat
 ```html
 <nys-unavheader hideTranslate></nys-unavheader>
 ```
+
+## Custom unav translation requirements
+
+In order to enable translation services for your custom unav site or app, you'll need to separately load in the Localize.js library, and configure your language translation links to fire off a JavaScript function to set the language.
+
+[Installing Localize.js on your site](https://developers.localizejs.com/docs/library-api)
+
+Once you have referenced the Localize library, you should configure the initialize function with our default properties and your personal translation key:
+
+```html
+<script>
+  Localize.initialize({
+    key: '{{TRANSLATION_KEY}}', 
+    rememberLanguage: true,
+    autoApprove: true,
+    enableLanguageDirections: true,
+    languageDirections: [
+        { language: "ar", direction: "rtl" },
+        { language: "ur", direction: "rtl" },
+        { language: "yi", direction: "rtl" },
+    ],
+  });
+</script>
+```
+
+After you have configured Localize to start, you need to fire off a JS function when you click on your translate links.
+
+### Before:
+```html
+<a href="https://es.its.ny.gov" class="translate-link">Español</a>
+```
+
+### After:
+```html
+<a href="#" id="translate-link">Español</a>
+<script>
+document.querySelector('#translate-link').addEventListener('click', (event) => {
+    event.preventDefault();
+    Localize.setLanguage('es');
+});
+</script>

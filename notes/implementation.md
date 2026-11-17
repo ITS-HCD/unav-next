@@ -11,9 +11,11 @@ How you add the UNav depends on your platform:
 
 Your site | What to do
 :--- | :---
-Drupal on **Acquia Site Factory**, managed by WebNY | **Nothing.** WebNY manages the UNav setup for these sites.
+Drupal sites, managed by WebNY | **Nothing.** WebNY manages the UNav setup for these sites.
 **New application** | Use `nys-unavheader` and `nys-unavfooter` from the NYSDS component library. See [Building a new application](#building-a-new-application).
-**Existing site** that uses the 2024 script embed (`<div id="nygov-universal-navigation">`) | Load the UNav bundle. See [Load the bundle](#load-the-bundle) and [Migrating from the 2024 script embed](#migrating-from-the-2024-script-embed).
+**Existing site** that uses the 2024 script embed and **CAN upgrade** to the new unav-bundle | [Download the UNAV bundle](#load-the-bundle) and [Migrate from the 2024 script](#migrating-from-the-2024-script-embed)
+**Existing site** that uses the 2024 script embed and **cannot upgrade** to the unav bundle | [Update your existing script](#update-2024-script)
+**Existing site** that uses a custom unav header, footer, or translate footer, and **cannot upgrade** to the unav bundle | [Update your custom implementation](#update-custom-implementation)
 
 ## Building a new application
 
@@ -64,17 +66,13 @@ Pin an exact version and update it deliberately. Check the [NYSDS releases](http
 
 ## Header
 
-> [!IMPORTANT]
-> Place the header as the first element inside `<body>`, outside of any container elements. The header should expand to 100% of the screen width, even if your current site has a fixed width.
+[Read the header documentation for usage](https://designsystem.ny.gov/components/unavheader).
 
-```html
-<body>
-  <nys-unavheader></nys-unavheader>
-  ...
-</body>
-```
+[Read the header documentation for options](https://designsystem.ny.gov/components/unavheader/#options).
 
-Search and the language selector are shown by default. Hide either one with a property:
+[Read the header documentation for JS events](https://designsystem.ny.gov/components/unavheader/#events).
+
+**IMPORTANT!!** Search and the language selector are now shown by default. Hide either one with a property:
 
 ```html
 <nys-unavheader hideSearch hideTranslate></nys-unavheader>
@@ -84,15 +82,7 @@ If you keep the language selector, set your Localize key with `translateKey`. Se
 
 ## Footer
 
-> [!IMPORTANT]
-> Place the footer as the last element inside `<body>`, outside of any container elements. The footer should expand to 100% of the screen width, even if your current site has a fixed width.
-
-```html
-<body>
-  ...
-  <nys-unavfooter></nys-unavfooter>
-</body>
-```
+[Read the nys-unavfooter documentation for usage](https://designsystem.ny.gov/components/unavfooter)
 
 ## Full page example
 
@@ -114,72 +104,9 @@ If you keep the language selector, set your Localize key with `translateKey`. Se
 </html>
 ```
 
-## Header settings
-
-Set these as attributes in HTML, or as properties from JavaScript.
-
-Attribute | Description | Default
-:--- | :--- | :---
-`hideSearch` | Hides search in the header. [More details.](/notes/search.md) | `false` (search shown)
-`hideTranslate` | Hides the language selector in the header. [More details.](/notes/translate.md) | `false` (translate shown)
-`searchUrl` | Configurable search endpoint. The query is URL-encoded and appended to the end of this value, so include the query parameter (for example `https://example.ny.gov/search?q=`). [More details.](/notes/search.md) | `""` (statewide search, scoped to your domain)
-`translateKey` | A Localize project key. When empty, languages link to Smartling subdomains, which stop working on December 31, 2026. Request a key from [translation@its.ny.gov](mailto:translation@its.ny.gov). [More details.](/notes/translate.md) | `""` (Smartling links)
-`landmarkLabel` | Accessible name of the header's `banner` landmark. | `"New York State"`
-
-Property (JavaScript only) | Description | Default
-:--- | :--- | :---
-`languages` | The languages listed in the language selector, as an array of `{ code, label, nativeText, url?, disclaimer? }`. [More details.](/notes/translate.md) | 14 languages
-
-## Footer settings
-
-Attribute | Description | Default
-:--- | :--- | :---
-`landmarkLabel` | Accessible name of the footer's `contentinfo` landmark. | `"New York State"`
-
-## Events
-
-The header fires two events. Both bubble, cross shadow boundaries, and are cancelable: call `event.preventDefault()` to replace the header's default behavior with your own.
-
-Event | Fired when | `event.detail` | Default behavior
-:--- | :--- | :--- | :---
-`nys-search-submit` | A visitor submits a search. | `{ query }` | Redirects to the search results page.
-`nys-language-select` | A visitor picks a language. | `{ language }` | Translates with Localize, or follows the language's link.
-
-```html
-<nys-unavheader id="unav"></nys-unavheader>
-<script>
-  document.querySelector("#unav").addEventListener("nys-search-submit", (event) => {
-    event.preventDefault();
-    mySiteSearch(event.detail.query);
-  });
-</script>
-```
-
 ## Layout width
 
-The UNav content is centered within a NYSDS container width. To match a different site width, set the `--nys-max-width--content` custom property, for example on `:root`. It applies to the header, the footer, and other NYSDS layout components.
-
-```css
-:root {
-  --nys-max-width--content: 1440px;
-}
-```
-
-## Content Security Policy
-
-If your site sends a Content Security Policy, allow the following:
-
-Directive | Source | Needed for
-:--- | :--- | :---
-`style-src` | `'unsafe-inline'` | The design tokens the bundle adds as a `<style>` element.
-`connect-src` | `https://alerts-cta.static-assets.ny.gov` | Statewide alerts and CTAs. Also allow `alerts-cta-dev` and `alerts-cta-stage` on non-production environments.
-`script-src`, `connect-src` | `https://global.localizecdn.com` and Localize's API hosts | Only when `translateKey` is set.
-
-If the alert and CTA feeds are blocked, the header and footer still render. Visitors just won't see statewide alerts or CTAs.
-
-## Testing on dev and stage
-
-See [Alerts](/notes/alerts.md)
+[Read the NYS Design System content width options](https://designsystem.ny.gov/components/unavheader/#style-overrides)
 
 ## Migrating from the 2024 script embed
 
@@ -219,3 +146,74 @@ Replace all of the previous script with the new bundle and the two components.
 > Because the defaults changed, a straight swap can turn on features your site had off. If your embed had `hideSearch: true` (the default), add `hideSearch`. If it had `showLanguageHeader: false` (the default), add `hideTranslate`.
 >
 > If your embed showed the language selector, set a `translateKey`. Without one, the selector links to Smartling subdomains, which stop working on December 31, 2026.
+
+## Update 2024 Script
+
+### The old script:
+```html
+<!-- NYS UNAV HEADER -->	
+<div id="nygov-universal-navigation" class="nygov-universal-container" data-iframe="true" data-updated="2024-08-26 12:00">
+  <script type="text/javascript">
+    var _NY = {
+      HOST: "static-assets.ny.gov",
+      BASE_HOST: "www.ny.gov", // Deprecated
+      hideSettings: true, // Deprecated
+      hideSearch: true,
+      showLanguageHeader: false,
+      showLanguageFooter: false,
+    };
+    (function (document, bundle, head) {
+        head = document.getElementsByTagName('head')[0];
+        bundle = document.createElement('script');
+        bundle.type = 'text/javascript';
+        bundle.async = true;
+        bundle.src = "//static-assets.ny.gov/sites/all/widgets/universal-navigation/js/dist/global-nav-bundle.js";
+        head.appendChild(bundle);
+    }(document));
+  </script>
+</div>
+```
+
+### The new script:
+
+Removed settings, and updated bundle URL
+
+```html
+<!-- NYS UNAV HEADER -->	
+<div id="nygov-universal-navigation" class="nygov-universal-container">
+  <script type="text/javascript">
+    var _NY = {
+      HOST: "static-assets.ny.gov",
+      hideSearch: true, // or false if you dont want search in unavheader
+      translateKey: "{{STRING}}" // Provide to load Localize translation platform
+    };
+    (function (document, bundle, head) {
+        head = document.getElementsByTagName('head')[0];
+        bundle = document.createElement('script');
+        bundle.type = 'text/javascript';
+        bundle.async = true;
+        bundle.src = "//static-assets.ny.gov/unavDS/js/unav-bundle.js";
+        head.appendChild(bundle);
+    }(document));
+  </script>
+</div>
+```
+## Update custom implementation
+
+If you built your own Unav, you'll need to [upgrade to the unavbundle](#load-the-bundle) or update your custom install. The changes to unav you need to be aware of the [search configuration](/notes/search.md) and [translation configuration](/notes/translate.md#custom-unav-translation-requirements). 
+
+## Testing on dev and stage
+
+See [Alerts](/notes/alerts.md)
+
+## Content Security Policy
+
+If your site sends a Content Security Policy, allow the following:
+
+Directive | Source | Needed for
+:--- | :--- | :---
+`style-src` | `'unsafe-inline'` | The design tokens the bundle adds as a `<style>` element.
+`connect-src` | `https://alerts-cta.static-assets.ny.gov` | Statewide alerts and CTAs. Also allow `alerts-cta-dev` and `alerts-cta-stage` on non-production environments.
+`script-src`, `connect-src` | `https://global.localizecdn.com` and Localize's API hosts | Only when `translateKey` is set.
+
+If the alert and CTA feeds are blocked, the header and footer still render. Visitors just won't see statewide alerts or CTAs.

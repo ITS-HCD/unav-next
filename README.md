@@ -14,9 +14,11 @@ UNav features:
 
 What you need to do depends on your site:
 
-- **Drupal sites on Acquia Site Factory, managed by WebNY:** Nothing. WebNY manages the UNav setup for these sites.
+- **Drupal sites, managed by WebNY:** Nothing. WebNY manages the UNav setup for these sites.
 - **New applications:** Use `nys-unavheader` and `nys-unavfooter` from the [NYS Design System](https://designsystem.ny.gov) component library `npm install @nysds/components @nysds/styles`. It supports native HTML, React, Angular, and Vue. See [Building a new application](/notes/implementation.md#building-a-new-application).
-- **Existing sites using the 2024 script embed:** Switch to the UNav bundle. See the [Implementation Guide](/notes/implementation.md).
+- **Existing sites using the 2024 script embed:** If able, switch to the UNav bundle. See the [Implementation Guide](/notes/implementation.md).
+- **Existing sites using the 2024 script embed:** If unable to switch, you'll need to [change your embed script to support the new unav](/notes/implementation.md#script-modification)
+- **Existing sites with fully custom unav implementations:** Depending on what customizations you have done, you can either upgrade to the official unav, or if you support translation, modify your custom installation to support our current Translation as a Service provider.
 
 > [!IMPORTANT]
 > **Currently use translation?** The current translation services and the translated language subdomains (for example, `es.its.ny.gov`) will stop working on **December 31, 2026**. No redirects are set up. To link to a translation, add `?ljs=` to your URL with the language code. For example `https://its.ny.gov/?ljs=es`. Request a Localize key from [translation@its.ny.gov](mailto:translation@its.ny.gov). See [Moving off Smartling](/notes/translate.md#moving-off-smartling).
