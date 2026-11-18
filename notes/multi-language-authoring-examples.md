@@ -1,14 +1,14 @@
+## Examples
 
 So far, the examples have been contrived to demonstrate concepts simply.
 To more directly relate this to your own content authoring and maintenance, browse through the following cases, all taken from actual New York State websites.
+
+Jump to sections below:
 
 - [Higher Education Services Corporation](#higher-education-services-corporation)
 - [Battery Park City Authority](#battery-park-city-authority)
 - [Language Access content common to many sites](#language-access-content-common-to-many-sites)
 - [Department of Taxation and Finance](#department-of-taxation-and-finance)
-
-<!-- PUT A PAGE BREAK HERE -->
-# Examples
 
 ### Higher Education Services Corporation
 
@@ -16,7 +16,7 @@ See: <https://www.tap.hesc.ny.gov/totw/>
 
 In the first example English is the language of the page, but there is **a line in Spanish**.
 
-#### Text presentation 
+#### Text presentation on the HESC site
 
 # NYS Student Aid Payment Application
 
@@ -25,7 +25,7 @@ In the first example English is the language of the page, but there is **a line 
 Welcome to the New York State Student Aid Payment Application!
 This online application process allows you to apply for New York State's Tuition Assistance Program (TAP).
 TAP is available to students attending a SUNY, CUNY, independent not-for-profit,
-and proprietary degree-granting colleges and universities on a full- or part-time basis.
+or private degree-granting college or university on a full- or part-time basis.
 
 #### How to structure the HTML
 
@@ -54,7 +54,7 @@ The page is set to English (**A**). However the Spanish line embedded within it 
 
 In the second example Spanish is the language of the page, but there is **a line in English**.
 
-#### Text presentation
+#### Text presentation on the HESC site
 
 # Solicitud de Pago de Ayuda Estudiantil de NYS
 
@@ -92,8 +92,6 @@ The page is set to Spanish (**C**). However the English line embedded within it 
 </html>
 ```
 
----
-
 ### Battery Park City Authority
 
 See: <https://bpca.ny.gov/>
@@ -101,7 +99,7 @@ See: <https://bpca.ny.gov/>
 Every page in the site has a footer with mixed language content.
 For brevity, only the language-specific links are shown and HTML is reduced.
 
-#### Text presentation
+#### Text presentation on the BPCA site
 
 ### Resources:
 
@@ -148,7 +146,9 @@ The unmarked English text will be translated if and when the user switches the p
 The Battery Park City Authority site's [Language Services](https://bpca.ny.gov/language-services/) page additionally has blocks of content in several languages. 
 For brevity, only the Spanish example is shown and HTML has been reduced.
 
-#### Text presentation
+#### Text presentation on the BPCA site
+
+---
 
 ## Language Services
 
@@ -200,8 +200,6 @@ Unless non-English text blocks are explicitly identified, screen readers and oth
 </html>
 ```
 
----
-
 ### Language Access content common to many sites
 
 See: <https://apa.ny.gov/website-usage-and-policies/language-access.html>, <https://its.ny.gov/language-access>, and others.
@@ -216,7 +214,7 @@ On the Agency site there are links to Bengali-translated PDFs, however the link 
 This is incorrect; the display text of the links must also be in Bengali.
 These links are corrected below, with the help of Google Translate.
 
-#### Text presentation (corrected):
+#### Text presentation on the APA site (corrected):
 
 **Bengali - বাঙাল**
 
@@ -295,13 +293,12 @@ The word "Bengali" is the English form of the language name and will translate w
     </div>
 </html>
 ```
----
 
 ### Department of Taxation and Finance
 
 See: <https://www.tax.ny.gov/language/>
 
-#### Text presentation
+#### Text presentation on the Tax site
 
 ## Language access
 
@@ -355,7 +352,7 @@ These are hyperlinks to translated pages. The existing HTML uses the `hreflang` 
 
 Next on the same page, a telephone number is provided to request interpretation services.
 
-#### Text presentation
+#### Text presentation on the Tax site
 
 ## Free interpretation
 
@@ -389,30 +386,36 @@ Si vous avez besoin d’un service d'interprétation gratuit dans votre langue, 
 
 A screen reader will attempt to pronounce each of these 13 sentences in the current language of the page. The resulting screen reader user experience will thus be unintelligible 12 out of 13 times.
 
-**Solution**: add the appropriate `lang` attribute to each sentence. In this case, we also want to protect the English sentence from translation; apply `notranslate`.
+**Solution**: add the appropriate `lang` and `notranslate` attributes to each sentence (**M, N**). Also note `dir="rtl"` provided for Urdu (**N**).
 
 ```html
 <html lang="en">
     <h2>Free interpretation</h2>
-    <p lang="en" notranslate>
-        If you need free interpretation services in your language,
-        call us at <a href="tel:+1-518-453-8137">518-453-8137</a>.
-    </p>
+
+    <!-- M -->
     <p lang="ru" notranslate>
         Чтобы получить бесплатные переводческие услуги, позвоните,
         пожалуйста, по следующему номеру:
         <a href="tel:+1-518-453-8137">518-453-8137</a>.
     </p>
+    
+    <!-- M -->
     <p lang="ko" notranslate>
         전화 <a href="tel:+1-518-453-8137">518-453-8137</a>
         로 무료 언어 지원 서비스를 요청하십시오.
+    </p>
+    
+    <!-- N -->
+    <p lang="ur" dir="rtl" notranslate>
+        زبان سے متعلق معاونت کی مفت خدمات کے لیے براہ مہربانی ہمیں
+        <a href="tel:+1-518-453-8137">518-453-8137</a> پر کال کریں۔
     </p>
 </html>
 ```
 
 Next on the same page, there are anchor links to dedicated language content below. These provide an interesting example of how well-intentioned code can create usability problems.
 
-#### Text presentation
+#### Text presentation on the Tax site
 
 Language:
 <a href="" title="skips to other content on the page" aria-label="English / skips to other content on the page">English</a>
@@ -433,7 +436,7 @@ Language:
 |
 <a href="" title="skips to other content on the page" aria-label="Italiano / skips to other content on the page">Italiano</a>
 |
-عرب<a href="" title="skips to other content on the page" aria-label="عربى / skips to other content on the page">عربى</a>
+<a href="" title="skips to other content on the page" aria-label="عربى / skips to other content on the page">عربى</a>
 |
 <a href="" title="skips to other content on the page" aria-label="Polski / skips to other content on the page">Polski</a>
 |
@@ -492,39 +495,63 @@ Language:
 
 #### How to structure the HTML
 
-1. Remove `aria-label` in favor of a visually hidden "screen reader only" CSS class set on a `<span>` next to the visible language name; this will be announced as a complete sentence by screen readers
-2. Provide translated text in the target languages up front in the `title` and the `sr-only` hint
-3. Specify the appropriate `lang` for either each list item or each anchor link, and block translation with `notranslate`
+1. Remove `aria-label` in favor of a visually hidden "screen reader only" CSS class set on a `<span>` next to the visible language name (**Q**); this will be announced as a complete sentence by screen readers
+2. Provide translated text in the target languages up front in the `title` and the `sr-only` hint (**P**)
+3. Specify the appropriate `lang` for either each list item or each anchor link, and block translation with `notranslate` (**O**)
 
 ```html
 <html lang="en">
     <ul>
         <li>Language:</li>
+
+        <!-- O -->
         <li notranslate>
+            
+            <!-- P -->
             <a href="#eng" title="skips to other content on the page">
                 English
+                
+                <!-- Q, P -->
                 <span class="sr-only">
                     skips to other content on the page
                 </span>
             </a>
         </li>
+        
+        <!-- O -->
         <li lang="es" notranslate>
+            
+            <!-- P -->
             <a href="#spa" title="salta a otros contenidos de la página">
                 Español
+                
+                <!-- Q, P -->
                 <span class="sr-only">
                     salta a otros contenidos de la página
                 </span>
             </a>
         </li>
+        
+        <!-- O -->
         <li lang="zh-CH" notranslate>
+            
+            <!-- P -->
             <a href="#chi" title="跳转至页面上的其他内容">
                 中文
+                
+                <!-- Q, P -->
                 <span class="sr-only">跳转至页面上的其他内容</span>
             </a>
         </li>
+        
+        <!-- O -->
         <li lang="ru" notranslate>
+            
+            <!-- P -->
             <a href="#rus" title="переход к другому содержимому на странице">
                 Русский
+                
+                <!-- Q, P -->
                 <span class="sr-only">
                     переход к другому содержимому на странице
                 </span>
