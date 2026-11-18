@@ -10,6 +10,8 @@ UNav features:
 - A search field
 - An embedded alert system for State-wide alerts and calls to action
 
+[ITS Policy NYS-S16-001](https://its.ny.gov/system/files/documents/2025/02/nys-s16-001-nys-universal-web-navigation.pdf)
+
 ## Getting Started
 
 What you need to do depends on your site:
@@ -31,6 +33,7 @@ What you need to do depends on your site:
 - [UNav Search](/notes/search.md) — Domain-scoped search, using your own search page, and hiding search.
 - [UNav Translate](/notes/translate.md) — How the language selector works, Localize, moving off Smartling, and hiding the language selector.
 - [Alerts and CTA](/notes/alerts.md) — How the UNav handles alerts in the header and statewide calls-to-action (CTAs) in the footer.
+
 
 > [!CAUTION]  
 > The UNav should only be used on official NYS websites or applications that are hosted a ny.gov domain and secured with HTTPS encryption. If you have questions about whether your site is eligible to use the UNav, please contact the NYS Design System Team via our [intake form](https://bit.ly/unav-intake).
