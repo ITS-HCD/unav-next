@@ -1,29 +1,24 @@
-# UNav Search 
-
-The search that is built into the updated UNav is designed to provide a consistent search experience across all New York State websites. 
+# UNav Search
 
 <img src="search.png" alt="UNav Search Functionality" width="640">
 
+Search is shown by default. On wide screens it's an inline search field. On narrow screens it collapses to a search button that opens the field below the header.
+
 ## How It Works
 
-The results are powered by a central Google Custom Search Engine (CSE). The UNav's search field is configured to show results of the domain a user searched from. In other words, if a user searches for something while visiting a page on the `its.ny.gov` domain, the search results displayed would come from `its.ny.gov`. 
+When a visitor submits a search, the header sends them to the statewide search service at `search.its.ny.gov`, scoped to the domain they searched from. In other words, if a visitor searches while on a page on the `its.ny.gov` domain, the results come from `its.ny.gov`.
 
-Users can also expand that search to include results from all NY state sites:
+## Using your own search page
 
-<img src="expand-search.png" alt="Expand to search across all NY State websites" width="320">
+See [Custom search endpoint](https://designsystem.ny.gov/components/unavheader/#custom-search-endpoint)
 
-## Disabling Search
+## Handling search in JavaScript
 
-Some websites or applications require their own custom search functionality. In these cases, the search option in the UNav can be disabled.
+See [Javascript events](https://designsystem.ny.gov/components/unavheader/#event-details)
 
-To disable search on the UNav, set the the `hideSearch` option to `true` in the header embed code. [More details in the implementation guide.](/notes/implementation.md)
+## Hiding search
 
-```javascript
-var _NY = {
-  HOST: "...",
-  BASE_HOST: "...",
-  hideSearch: true, // False will show search option, true will hide search option
-  showLanguageHeader: false,
-  showLanguageFooter: false,
-};
-```
+See [Hiding search](https://designsystem.ny.gov/components/unavheader/#search-off)
+
+> [!NOTE]
+> The script embed hid search by default. The component shows it by default, so add `hideSearch` if your site had search off.
