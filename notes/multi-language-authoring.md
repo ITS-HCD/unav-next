@@ -149,7 +149,7 @@ If the text is an RTL word or short phrase tightly composited with corresponding
 ###### Example A
 
 ```html
-<div style="display:flex; flex-gap: 1rem;">
+<div style="display:flex; gap: 1rem;">
     <a href="path/to/page" lang="en">English</a>
     <a href="path/to/page" lang="ar">عربى</a>
     <a href="path/to/page" lang="fr">Français</a>
