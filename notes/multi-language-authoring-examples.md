@@ -148,8 +148,6 @@ For brevity, only the Spanish example is shown and HTML has been reduced.
 
 #### Text presentation on the BPCA site
 
----
-
 ## Language Services
 
 Each link opens a PDF in a new window.
@@ -304,12 +302,28 @@ See: <https://www.tax.ny.gov/language/>
 
 To increase taxpayer access to information, we've translated documents into the languages below.
 
-|  |  |
-| :-- | :-- | :-- |
-| [Español]() |  [繁體中文]() |  [Русский]() |
-| [বাংলা]()   |  [יידיש ]()    |  [Kreyòl ayisyen]() |
-| [한국어]()  |  [Italiano]() |  [العربية]() |
-| [Polski]()|  [Français]() | [اردو]() |
+<table>
+    <tr>
+        <td><a href="pathtopage">Español</a></td>
+        <td><a href="pathtopage">繁體中文</a></td>
+        <td><a href="pathtopage">Русский</a></td>
+    </tr>
+    <tr>
+        <td><a href="pathtopage">বাংলা</a></td>
+        <td><a href="pathtopage">יידיש</a></td>
+        <td><a href="pathtopage">Kreyòl ayisyen</a></td>
+    </tr>
+    <tr>
+        <td><a href="pathtopage">한국어</a></td>
+        <td><a href="pathtopage">Italiano</a></td>
+        <td><a href="pathtopage">العربية</a></td>
+    </tr>
+    <tr>
+        <td><a href="pathtopage">Polski</a></td>
+        <td><a href="pathtopage">Français</a></td>
+        <td><a href="pathtopage">اردو</a></td>
+    </tr>
+</table>
 
 #### How to structure the HTML
 
