@@ -5,18 +5,16 @@ To more directly relate this to your own content authoring and maintenance, brow
 
 Jump to sections below:
 
-- [Higher Education Services Corporation](#higher-education-services-corporation)
-- [Battery Park City Authority](#battery-park-city-authority)
-- [Language Access content common to many sites](#language-access-content-common-to-many-sites)
-- [Department of Taxation and Finance](#department-of-taxation-and-finance)
+- [Example set 1](#example-set-1)
+- [Example set 2](#example-set-2)
+- [Example set 3](#example-set-3)
+- [Example set 4](#example-set-4)
 
-### Higher Education Services Corporation
-
-See: <https://www.tap.hesc.ny.gov/totw/>
+### Example set 1
 
 In the first example English is the language of the page, but there is **a line in Spanish**.
 
-#### Text presentation on the HESC site
+#### Text presentation on the site
 
 # NYS Student Aid Payment Application
 
@@ -54,7 +52,7 @@ The page is set to English (**A**). However the Spanish line embedded within it 
 
 In the second example Spanish is the language of the page, but there is **a line in English**.
 
-#### Text presentation on the HESC site
+#### Text presentation on the site
 
 # Solicitud de Pago de Ayuda Estudiantil de NYS
 
@@ -92,14 +90,12 @@ The page is set to Spanish (**C**). However the English line embedded within it 
 </html>
 ```
 
-### Battery Park City Authority
-
-See: <https://bpca.ny.gov/>
+### Example set 2
 
 Every page in the site has a footer with mixed language content.
 For brevity, only the language-specific links are shown and HTML is reduced.
 
-#### Text presentation on the BPCA site
+#### Text presentation on the site
 
 ### Resources:
 
@@ -143,10 +139,10 @@ The unmarked English text will be translated if and when the user switches the p
 </html>
 ```
 
-The Battery Park City Authority site's [Language Services](https://bpca.ny.gov/language-services/) page additionally has blocks of content in several languages. 
+This site's Language Services page additionally has blocks of content in several languages. 
 For brevity, only the Spanish example is shown and HTML has been reduced.
 
-#### Text presentation on the BPCA site
+#### Text presentation on the site
 
 ## Language Services
 
@@ -156,11 +152,11 @@ Each link opens a PDF in a new window.
 
 Cada enlace abre un PDF en una ventana nueva.
 
-**[Información general del BPCA](https://media.bpca.ny.gov/wp-content/uploads/2021/12/13123217/BPCA-one-pager_Dec2021_ES.pdf)**
+**[Información general del Agencia](<>)**
 
-**[Mapa de BPCA](https://media.bpca.ny.gov/wp-content/uploads/2015/12/13124539/ES_BPCA_Map_Fonts_REV43_1.23.15.pdf)**
+**[Mapa de Agencia](<>)**
 
-**[Reglas del permiso](https://media.bpca.ny.gov/wp-content/uploads/2015/12/13124538/PermitRulesRegs-FNL5-2015_ES.pdf)**
+**[Reglas del permiso](<>)**
 
 #### How to structure the HTML
 
@@ -177,19 +173,19 @@ Unless non-English text blocks are explicitly identified, screen readers and oth
         <h3>Español</h3>
         <p>Cada enlace abre un PDF en una ventana nueva.</p>
         <p><strong>
-            <a href="https://media.bpca.ny.gov/path/to/the.pdf"
+            <a href="/path/to/the.pdf"
                target="_blank">
-                Información general del BPCA
+                Información general del Agencia 
             </a>
         </strong></p>
         <p><strong>
-            <a href="https://media.bpca.ny.gov/path/to/the.pdf"
+            <a href="/path/to/the.pdf"
                target="_blank">
-                Mapa de BPCA
+                Mapa de Agencia
             </a>
         </strong></p>
         <p><strong>
-            <a href="https://media.bpca.ny.gov/path/to/the.pdf"
+            <a href="/path/to/the.pdf"
                target="_blank">
                 Reglas del permiso
             </a>
@@ -198,12 +194,10 @@ Unless non-English text blocks are explicitly identified, screen readers and oth
 </html>
 ```
 
-### Language Access content common to many sites
+### Example set 3 
 
-See: <https://apa.ny.gov/website-usage-and-policies/language-access.html>, <https://its.ny.gov/language-access>, and others.
-
-The Adirondack Park Agency's language access page has a set of accordions, one for each of the 13 NYS supported languages.
-Note that since the site also has a language switcher, these dedicated sections may not be necessary.
+Some language access pages use a set of accordions, one for each of the 13 NYS supported languages.
+Note that when a site also has a language switcher, these dedicated sections may not be necessary.
 However, let's assume they are necessary and that each must remain in the specific language,
 even when the language of the page changes.
 
@@ -212,18 +206,17 @@ On the Agency site there are links to Bengali-translated PDFs, however the link 
 This is incorrect; the display text of the links must also be in Bengali.
 These links are corrected below, with the help of Google Translate.
 
-#### Text presentation on the APA site (corrected):
+#### Text presentation on the site (corrected):
 
 **Bengali - বাঙাল**
 
 নিউ ইয়র্ক স্টেটের ভাষার অ্যাক্সেস নীতি অনুযায়ী, সরাসরি সরকারি পরিষেবা প্রদান করে, স্টেটের এরকম নির্বাহী এজেন্সিগুলিকে অনুরোধকৃত ভাষাতে অনুবাদ পরিষেবাগুলি প্রদান করতে হয় এবং গুরুত্বপূর্ণ ফর্ম ও কাগজপত্রগুলিকে নিউ ইয়র্ক স্টেটের ইংরেজি ছাড়াও 12টি সবচেয়ে বেশি বলা ভাষাতে প্রদান করতে হয়।এটি স্টেটকে সীমিত ইংরেজির দক্ষতা থাকা ব্যক্তিদের কাছে সরকারি পরিষেবা ও কর্মসূচিগুলির ক্ষেত্রে হওয়া বাধাগুলি কাটিয়ে উঠতে সহায়তা করে। এই মুহূর্তে, শীর্ষ বারোটি ভাষা হল: স্প্যানিশ, চীনা, রাশিয়ান, ইদ্দিস, বাংলা, কোরিয়ান, হাইতিয়ান ক্রেওলি, ইটালিয়ান, আরবি, পোলিশ, ফ্রেঞ্চ এবং উর্দু।
 
-[অ্যাডিরনড্যাক পার্ক এজেন্সির নাগরিক নির্দেশিকা]() (original: _Adirondack Park Agency's Citizens Guide_)
+[অ্যাডিরনড্যাক পার্ক এজেন্সির নাগরিক নির্দেশিকা]()
 
-[OLA অধিকার বিষয়ক ব্রোশিওর]() (original: _OLA Rights Brochure_)
+[OLA অধিকার বিষয়ক ব্রোশিওর]()
 
 [ব্যাখ্যা প্রদান সংক্রান্ত পরিষেবার পরিহার]()
-(original: _Waiver of Interpretation Services_)
 
 ## একটি ভাষার অ্যাক্সেস সংক্রান্ত অভিযোগ জমা দেওয়ার অধিকার
 
@@ -241,7 +234,7 @@ These links are corrected below, with the help of Google Translate.
 
 The word "Bengali" is the English form of the language name and will translate when the language of the page changes upon language switcher selection. However the remainder of the text must be recognized as Bangla.
 
-**Solution**: As in the Battery Park City examples, code the non-English link text with an appropriate `lang` value and `notranslate` (**H**), and do the same for sections that wrap complete language content blocks (**I**). Ensure that all documents have localized link text (**J**).
+**Solution**: As in previous examples, code the non-English link text with an appropriate `lang` value and `notranslate` (**H**), and do the same for sections that wrap complete language content blocks (**I**). Ensure that all documents have localized link text (**J**).
 
 ```html
 <html lang="en">
@@ -268,21 +261,21 @@ The word "Bengali" is the English form of the language name and will translate w
         <p>
             
             <!-- J -->
-            <a href="../path/to/CitizensGuide_Bn.pdf">
+            <a href="../path/to/file.pdf">
                 অ্যাডিরনড্যাক পার্ক এজেন্সির নাগরিক নির্দেশিকা]
             </a>
         </p>
         <p>
             
             <!-- J -->
-            <a href="../path/to/2023OLARightsBrochure_Bn.pdf">
+            <a href="../path/to/file.pdf">
                 OLA অধিকার বিষয়ক ব্রোশিওর
             </a>
         </p>
         <p>
             
             <!-- J -->
-            <a href="../path/to/2023WaiverofInterpretationServices_Bn.pdf">
+            <a href="../path/to/file.pdf">
                 ব্যাখ্যা প্রদান সংক্রান্ত পরিষেবার পরিহার
             </a>
         </p>
@@ -292,11 +285,10 @@ The word "Bengali" is the English form of the language name and will translate w
 </html>
 ```
 
-### Department of Taxation and Finance
+### Example set 4
 
-See: <https://www.tax.ny.gov/language/>
 
-#### Text presentation on the Tax site
+#### Text presentation on the site
 
 ## Language access
 
@@ -366,7 +358,7 @@ These are hyperlinks to translated pages. The existing HTML uses the `hreflang` 
 
 Next on the same page, a telephone number is provided to request interpretation services.
 
-#### Text presentation on the Tax site
+#### Text presentation on the site
 
 ## Free interpretation
 
@@ -429,7 +421,7 @@ A screen reader will attempt to pronounce each of these 13 sentences in the curr
 
 Next on the same page, there are anchor links to dedicated language content below. These provide an interesting example of how well-intentioned code can create usability problems.
 
-#### Text presentation on the Tax site
+#### Text presentation on the site
 
 Language:
 <a href="" title="skips to other content on the page" aria-label="English / skips to other content on the page">English</a>
